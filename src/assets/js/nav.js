@@ -96,6 +96,10 @@
 			elements.body.classList.toggle(CONFIG.CLASSES.menuOpen);
 			toggleAttribute(elements.hamburger, "aria-expanded");
 
+			// Sync aria-expanded on #cs-expanded (the <ul> element)
+			const csExpanded = document.querySelector("#cs-expanded");
+			if (csExpanded) toggleAttribute(csExpanded, "aria-expanded");
+
 			// Only manage inert state on mobile devices
 			if (elements.menuWrapper && isMobile()) {
 				toggleInert(elements.menuWrapper);
@@ -249,3 +253,9 @@
 	init.inertState();
 	init.eventListeners();
 })();
+
+// Scroll class for navbar animations
+document.addEventListener("scroll", () => {
+	const scroll = document.documentElement.scrollTop;
+	document.querySelector("body").classList.toggle("scroll", scroll >= 100);
+});

@@ -5,79 +5,93 @@ permalink: "/"
 tags: "sitemap" # content/content.json will make sure that all pages in content/ are marked with a "sitemap" tag, for automatic sitemap generation. As index.html is not in content/, we need to add it here to ensure the root page is included in the sitemap generation
 ---
 
-{% extends "layouts/base.html" %}
+{% extends "layouts/base.html" %} {% block head %}
+<!-- Critical styles are loaded first -->
+<link rel="stylesheet" href="/assets/css/critical.css" />
 
-{% block head %}
-    <!-- Critical styles are loaded first -->
-    <link rel="stylesheet" href="/assets/css/critical.css"/>
+<!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
+{% if client.isProduction %}
+<link
+  rel="preload"
+  href="/assets/css/local.css"
+  as="style"
+  onload="
+    this.onload = null;
+    this.rel = 'stylesheet';
+  "
+/>
+<noscript>
+  <link rel="stylesheet" href="/assets/css/local.css" />
+</noscript>
 
-    <!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
-    {% if client.isProduction %}
-        <link rel="preload" href="/assets/css/local.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript>
-            <link rel="stylesheet" href="/assets/css/local.css">
-        </noscript>
+{% else %}
+<link rel="stylesheet" href="/assets/css/local.css" />
+{% endif %}
 
-    {% else %}
-        <link rel="stylesheet" href="/assets/css/local.css"/>
-    {% endif %}
-
-    <!-- To ensure proper validation, prevent errors, and encourage developers to check, schema's are an opt-in feature. They're very bespoke and requires some customising  -->
-    <!-- Uncomment the code below to enable Structured Data, and test it when you deploy to Netlify - https://developers.google.com/search/docs/appearance/structured-data -->
-    <!-- {% include "components/home-schema.html" %} -->
-{% endblock %}
-
-{% block body %}
+<!-- To ensure proper validation, prevent errors, and encourage developers to check, schema's are an opt-in feature. They're very bespoke and requires some customising  -->
+<!-- Uncomment the code below to enable Structured Data, and test it when you deploy to Netlify - https://developers.google.com/search/docs/appearance/structured-data -->
+<!-- {% include "components/home-schema.html" %} -->
+{% endblock %} {% block body %}
 
 <!-- ============================================ -->
 <!--                    Hero                      -->
 <!-- ============================================ -->
 
 <section id="hero-1957">
-    <div class="cs-container">
-        <div class="cs-content">
-            <span class="cs-topper">Precision RX Compounding</span>
-            <h1 class="cs-title">Medications <em>Precisely</em> Made For You</h1>
-            <p class="cs-text">At Precision Rx, we go beyond the standard prescription. Our pharmacists craft custom-compounded medications tailored to your exact dose, form, and needs — when one size doesn't fit all.</p>
-            <button href="#" class="button" style="--clr: #7808d0">
-  <span class="button__icon-wrapper">
-    <svg
-      viewBox="0 0 14 15"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="button__icon-svg"
-      width="10"
-    >
-      <path
-        d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-        fill="currentColor"
-      ></path>
-    </svg>
+  <div class="cs-container">
+    <div class="cs-content">
+      <span class="cs-topper">Precision RX Compounding</span>
+      <h1 class="cs-title">Medications <em>Precisely</em> Made For You</h1>
+      <p class="cs-text">
+        At Precision Rx, we go beyond the standard prescription. Our pharmacists
+        craft custom-compounded medications tailored to your exact dose, form,
+        and needs — when one size doesn't fit all.
+      </p>
+      <button href="#" class="button" style="--clr: #7808d0">
+        <span class="button__icon-wrapper">
+          <svg
+            viewBox="0 0 14 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="button__icon-svg"
+            width="10"
+          >
+            <path
+              d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+              fill="currentColor"
+            ></path>
+          </svg>
 
-    <svg
-      viewBox="0 0 14 15"
-      fill="none"
-      width="10"
-      xmlns="http://www.w3.org/2000/svg"
-      class="button__icon-svg button__icon-svg--copy"
-    >
-      <path
-        d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-        fill="currentColor"
-      ></path>
-    </svg>
-  </span>
-  Explore Our Services
-</button>
-
-        </div>
+          <svg
+            viewBox="0 0 14 15"
+            fill="none"
+            width="10"
+            xmlns="http://www.w3.org/2000/svg"
+            class="button__icon-svg button__icon-svg--copy"
+          >
+            <path
+              d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </span>
+        Explore Our Services
+      </button>
     </div>
-    <!-- Background Image, there's a background image in the CSS for the parallax effect you'll need to change as well if you swap out our images -->
-    <picture class="cs-background">
-        <source media="(max-width: 600px)" srcset="/assets/images/banner-m.webp">
-        <source media="(min-width: 601px)" srcset="/assets/images/banner.webp">
-        <img decoding="async" src="/assets/images/banner.webp" alt="Precision RX Compounding" width="1920" height="746" aria-hidden="true">
-    </picture>
+  </div>
+  <!-- Background Image, there's a background image in the CSS for the parallax effect you'll need to change as well if you swap out our images -->
+  <picture class="cs-background">
+    <source media="(max-width: 600px)" srcset="/assets/images/banner-m.webp" />
+    <source media="(min-width: 601px)" srcset="/assets/images/banner.webp" />
+    <img
+      decoding="async"
+      src="/assets/images/banner.webp"
+      alt="Precision RX Compounding"
+      width="1920"
+      height="746"
+      aria-hidden="true"
+    />
+  </picture>
 </section>
 
 <!-- ============================================ -->
@@ -85,66 +99,95 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
 <!-- ============================================ -->
 
 <section id="services-1305">
-    <div class="cs-container">
-        <ul class="cs-card-group">
-            <li class="cs-item">
-                <div class="cs-image-group">
-                    <img class="cs-icon" loading="lazy" decoding="async"
-                            src="/assets/svgs/pin.svg" alt="icon" width="48"
-                            height="48">
-                </div>
-                <div class="cs-flex">
-                    <h2 class="cs-h2">Location</h2>
-                    <p class="cs-item-text">
-                        {{client.address.lineOne}}<br>
-                        {{client.address.city}}, {{client.address.state}} {{client.address.zip}}
-                    </p>
-                </div>
-            </li>
-            <li class="cs-item">
-                <div class="cs-image-group">
-                    <img class="cs-icon" loading="lazy" decoding="async"
-                            src="/assets/svgs/clock.svg" alt="icon" width="48"
-                            height="48">
-                </div>
-                <div class="cs-flex">
-                    <h2 class="cs-h2">Hours</h2>
-                    <p class="cs-item-text">
-                        Monday - Friday<br>
-                        8:00 AM – 5:00 PM
-                    </p>
-                </div>
-            </li>
-            <li class="cs-item">
-                <div class="cs-image-group">
-                    <img class="cs-icon" loading="lazy" decoding="async"
-                            src="/assets/svgs/mail.svg" alt="icon" width="48"
-                            height="48">
-                </div>
-                <div class="cs-flex">
-                    <h2 class="cs-h2">Contact</h2>
-                    <p class="cs-item-text">
-                        <a class="cs-contact-link" href="tel:{{ client.phoneForTel }}">{{ client.phoneFormatted }}</a><br>
-                        <a class="cs-contact-link" href="mailto:{{ client.email }}">{{ client.email }}</a>
-                    </p>
-                </div>
-            </li>
-            <li class="cs-item">
-                <div class="cs-image-group">
-                    <img class="cs-icon" loading="lazy" decoding="async"
-                            src="/assets/svgs/card.svg" alt="icon" width="48"
-                            height="48">
-                </div>
-                <div class="cs-flex">
-                    <h2 class="cs-h2">Accepted</h2>
-                    <p class="cs-item-text">
-                        Medicaid &<br>
-                        Most Insurance
-                    </p>
-                </div>
-            </li>
-        </ul>
-    </div>
+  <div class="cs-container">
+    <ul class="cs-card-group">
+      <li class="cs-item">
+        <div class="cs-image-group">
+          <img
+            class="cs-icon"
+            loading="lazy"
+            decoding="async"
+            src="/assets/svgs/pin.svg"
+            alt="icon"
+            width="48"
+            height="48"
+          />
+        </div>
+        <div class="cs-flex">
+          <h2 class="cs-h2">Location</h2>
+          <p class="cs-item-text">
+            {{client.address.lineOne}}<br />
+            {{client.address.city}}, {{client.address.state}}
+            {{client.address.zip}}
+          </p>
+        </div>
+      </li>
+      <li class="cs-item">
+        <div class="cs-image-group">
+          <img
+            class="cs-icon"
+            loading="lazy"
+            decoding="async"
+            src="/assets/svgs/clock.svg"
+            alt="icon"
+            width="48"
+            height="48"
+          />
+        </div>
+        <div class="cs-flex">
+          <h2 class="cs-h2">Hours</h2>
+          <p class="cs-item-text">
+            Monday - Friday<br />
+            8:00 AM – 5:00 PM
+          </p>
+        </div>
+      </li>
+      <li class="cs-item">
+        <div class="cs-image-group">
+          <img
+            class="cs-icon"
+            loading="lazy"
+            decoding="async"
+            src="/assets/svgs/mail.svg"
+            alt="icon"
+            width="48"
+            height="48"
+          />
+        </div>
+        <div class="cs-flex">
+          <h2 class="cs-h2">Contact</h2>
+          <p class="cs-item-text">
+            <a class="cs-contact-link" href="tel:{{ client.phoneForTel }}"
+              >{{ client.phoneFormatted }}</a
+            ><br />
+            <a class="cs-contact-link" href="mailto:{{ client.email }}"
+              >{{ client.email }}</a
+            >
+          </p>
+        </div>
+      </li>
+      <li class="cs-item">
+        <div class="cs-image-group">
+          <img
+            class="cs-icon"
+            loading="lazy"
+            decoding="async"
+            src="/assets/svgs/card.svg"
+            alt="icon"
+            width="48"
+            height="48"
+          />
+        </div>
+        <div class="cs-flex">
+          <h2 class="cs-h2">Accepted</h2>
+          <p class="cs-item-text">
+            Medicaid &<br />
+            Most Insurance
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
 </section>
 
 <!-- ============================================ -->
@@ -152,77 +195,93 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
 <!-- ============================================ -->
 
 <section id="sbsr-1309">
-    <div class="cs-container">
-        <!-- Left Image Section -->
-        <div class="cs-image-group">
-            <!--Floating Box-->
-            <div class="cs-box">
-                <span class="cs-desc">Serving Vestavia Hills and the greater Birmingham area since 2014.</span>
-            </div>
-            <!--Image-->
-            <picture class="cs-picture">
-                <source media="(max-width: 600px)" srcset="/assets/images/about.webp">
-                <source media="(min-width: 601px)" srcset="/assets/images/about.webp">
-                <img loading="lazy" decoding="async" src="/assets/images/about.webp" alt="About Precision RX Compounding Pharmacy" width="630" height="630" aria-hidden="true">
-            </picture>
-        </div>
-        <!-- Right Content Section-->
-        <div class="cs-content">
-            <span class="cs-topper">What We Do</span>
-            <h2 class="cs-title">Not every patient fits
-a standard prescription.</h2>
-            <p class="cs-text">
-                Commercial medications come in fixed doses and a limited range of forms. But patients aren't standard — and that's where compounding changes everything. At Precision Rx, our licensed compounding pharmacists work directly with you and your physician to create a medication that fits your biology, not the other way around.
-            </p>
-            <p class="cs-text">
-                Whether you need a unique dose, an allergen-free formula, or a form that's easier to take, we build it from scratch with pharmaceutical-grade ingredients and rigorous quality standards.
-            </p>
-            <button href="#" class="button" style="--clr: #7808d0">
-  <span class="button__icon-wrapper">
-    <svg
-      viewBox="0 0 14 15"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="button__icon-svg"
-      width="10"
-    >
-      <path
-        d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-        fill="currentColor"
-      ></path>
-    </svg>
-
-    <svg
-      viewBox="0 0 14 15"
-      fill="none"
-      width="10"
-      xmlns="http://www.w3.org/2000/svg"
-      class="button__icon-svg button__icon-svg--copy"
-    >
-      <path
-        d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-        fill="currentColor"
-      ></path>
-    </svg>
-  </span>
-  Explore Our Services
-</button>
-            <ul class="cs-ul">
-                <li class="cs-item">
-                    <span class="cs-number">RX+</span>
-                    <h3 class="cs-h3">Specialty Compounding</h3>
-                </li>
-                <li class="cs-item">
-                    <span class="cs-number">5-Star</span>
-                    <h3 class="cs-h3">Patient-Focused Care</h3>
-                </li>
-                <li class="cs-item">
-                    <span class="cs-number">100%</span>
-                    <h3 class="cs-h3">Custom Prescription Formulations</h3>
-                </li>
-            </ul>
-        </div>
+  <div class="cs-container">
+    <!-- Left Image Section -->
+    <div class="cs-image-group">
+      <!--Floating Box-->
+      <div class="cs-box">
+        <span class="cs-desc"
+          >Serving Vestavia Hills and the greater Birmingham area since
+          2014.</span
+        >
+      </div>
+      <!--Image-->
+      <picture class="cs-picture">
+        <source media="(max-width: 600px)" srcset="/assets/images/about.webp" />
+        <source media="(min-width: 601px)" srcset="/assets/images/about.webp" />
+        <img
+          loading="lazy"
+          decoding="async"
+          src="/assets/images/about.webp"
+          alt="About Precision RX Compounding Pharmacy"
+          width="630"
+          height="630"
+          aria-hidden="true"
+        />
+      </picture>
     </div>
+    <!-- Right Content Section-->
+    <div class="cs-content">
+      <span class="cs-topper">What We Do</span>
+      <h2 class="cs-title">Not every patient fits a standard prescription.</h2>
+      <p class="cs-text">
+        Commercial medications come in fixed doses and a limited range of forms.
+        But patients aren't standard — and that's where compounding changes
+        everything. At Precision Rx, our licensed compounding pharmacists work
+        directly with you and your physician to create a medication that fits
+        your biology, not the other way around.
+      </p>
+      <p class="cs-text">
+        Whether you need a unique dose, an allergen-free formula, or a form
+        that's easier to take, we build it from scratch with
+        pharmaceutical-grade ingredients and rigorous quality standards.
+      </p>
+      <button href="#" class="button" style="--clr: #7808d0">
+        <span class="button__icon-wrapper">
+          <svg
+            viewBox="0 0 14 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="button__icon-svg"
+            width="10"
+          >
+            <path
+              d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+              fill="currentColor"
+            ></path>
+          </svg>
+
+          <svg
+            viewBox="0 0 14 15"
+            fill="none"
+            width="10"
+            xmlns="http://www.w3.org/2000/svg"
+            class="button__icon-svg button__icon-svg--copy"
+          >
+            <path
+              d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </span>
+        Explore Our Services
+      </button>
+      <ul class="cs-ul">
+        <li class="cs-item">
+          <span class="cs-number">RX+</span>
+          <h3 class="cs-h3">Specialty Compounding</h3>
+        </li>
+        <li class="cs-item">
+          <span class="cs-number">5-Star</span>
+          <h3 class="cs-h3">Patient-Focused Care</h3>
+        </li>
+        <li class="cs-item">
+          <span class="cs-number">100%</span>
+          <h3 class="cs-h3">Custom Prescription Formulations</h3>
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <!-- ============================================ -->
@@ -230,70 +289,138 @@ a standard prescription.</h2>
 <!-- ============================================ -->
 
 <section id="services-1303">
-    <div class="cs-container">
-        <div class="cs-content">
-            <div class="cs-flex-group">
-                <span class="cs-topper">Our Services</span>
-                <h2 class="cs-title">Professional Tax & Accounting Services</h2>
-            </div>
-            <p class="cs-text">
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.
-            </p>
-        </div>
-        <ul class="cs-card-group">
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <img class="cs-icon" src="/assets/svgs/balance.svg" loading="lazy" decoding="async" alt="icon" width="40" height="40" aria-hidden="true">
-                    <h3 class="cs-h3">Hormone Therapy</h3>
-                    <p class="cs-item-text">
-Bioidentical hormone replacement therapy (BHRT) compounded to match your exact lab-tested levels. Creams, capsules, troches, and more.                    </p>
-                </a>
-            </li>
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <img class="cs-icon" src="/assets/svgs/pill.svg" loading="lazy" decoding="async" alt="icon" width="40" height="40" aria-hidden="true">
-                    <h3 class="cs-h3">Pain Management</h3>
-                    <p class="cs-item-text">
-Targeted topical pain formulas that deliver medication directly where it's needed — reducing systemic side effects compared to oral drugs.                    </p>
-                </a>
-            </li>
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <img class="cs-icon" src="/assets/svgs/skin.svg" loading="lazy" decoding="async" alt="icon" width="40" height="40" aria-hidden="true">
-                    <h3 class="cs-h3">Dermatology</h3>
-                    <p class="cs-item-text">
-Custom creams, gels, and solutions for acne, rosacea, hyperpigmentation, eczema, psoriasis, and wound care — built around your skin type.                    </p>
-                </a>
-            </li>
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <img class="cs-icon" src="/assets/svgs/wellness.svg" loading="lazy" decoding="async" alt="icon" width="40" height="40" aria-hidden="true">
-                    <h3 class="cs-h3">Wellness & Weight Loss</h3>
-                    <p class="cs-item-text">
-                        GLP-1 support, energy, immunity, hormone balance, and sleep formulations. Personalized wellness care that works with your lifestyle.
-                    </p>
-                </a>
-            </li>
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <img class="cs-icon" src="/assets/svgs/women.svg" loading="lazy" decoding="async" alt="icon" width="40" height="40" aria-hidden="true">
-                    <h3 class="cs-h3">Women's Health</h3>
-                    <p class="cs-item-text">
-                        Compassionate pharmacy solutions across every stage of life — from contraception and fertility support to menopause and beyond.
-                    </p>
-                </a>
-            </li>
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <img class="cs-icon" src="/assets/svgs/bird.svg" loading="lazy" decoding="async" alt="icon" width="40" height="40" aria-hidden="true">
-                    <h3 class="cs-h3">Veterinary Medicine</h3>
-                    <p class="cs-item-text">
-                        Custom compounded medications for pets — from flavored formulas your pet will actually take to precise dosing for unique sizes and species.
-                    </p>
-                </a>
-            </li>
-        </ul>
+  <div class="cs-container">
+    <div class="cs-content">
+      <div class="cs-flex-group">
+        <span class="cs-topper">Our Services</span>
+        <h2 class="cs-title">What We Compound</h2>
+      </div>
+      <p class="cs-text">
+        From hormone therapy to dermatology, we craft individualized
+        formulations across a broad range of therapeutic areas.
+      </p>
     </div>
+    <ul class="cs-card-group">
+      <li class="cs-item">
+        <a href="" class="cs-link">
+          <img
+            class="cs-icon"
+            src="/assets/svgs/balance.svg"
+            loading="lazy"
+            decoding="async"
+            alt="icon"
+            width="40"
+            height="40"
+            aria-hidden="true"
+          />
+          <h3 class="cs-h3">Hormone Therapy</h3>
+          <p class="cs-item-text">
+            Bioidentical hormone replacement therapy (BHRT) compounded to match
+            your exact lab-tested levels. Creams, capsules, troches, and more.
+          </p>
+        </a>
+      </li>
+      <li class="cs-item">
+        <a href="" class="cs-link">
+          <img
+            class="cs-icon"
+            src="/assets/svgs/pill.svg"
+            loading="lazy"
+            decoding="async"
+            alt="icon"
+            width="40"
+            height="40"
+            aria-hidden="true"
+          />
+          <h3 class="cs-h3">Pain Management</h3>
+          <p class="cs-item-text">
+            Targeted topical pain formulas that deliver medication directly
+            where it's needed — reducing systemic side effects compared to oral
+            drugs.
+          </p>
+        </a>
+      </li>
+      <li class="cs-item">
+        <a href="" class="cs-link">
+          <img
+            class="cs-icon"
+            src="/assets/svgs/skin.svg"
+            loading="lazy"
+            decoding="async"
+            alt="icon"
+            width="40"
+            height="40"
+            aria-hidden="true"
+          />
+          <h3 class="cs-h3">Dermatology</h3>
+          <p class="cs-item-text">
+            Custom creams, gels, and solutions for acne, rosacea,
+            hyperpigmentation, eczema, psoriasis, and wound care — built around
+            your skin type.
+          </p>
+        </a>
+      </li>
+      <li class="cs-item">
+        <a href="" class="cs-link">
+          <img
+            class="cs-icon"
+            src="/assets/svgs/wellness.svg"
+            loading="lazy"
+            decoding="async"
+            alt="icon"
+            width="40"
+            height="40"
+            aria-hidden="true"
+          />
+          <h3 class="cs-h3">Wellness & Weight Loss</h3>
+          <p class="cs-item-text">
+            GLP-1 support, energy, immunity, hormone balance, and sleep
+            formulations. Personalized wellness care that works with your
+            lifestyle.
+          </p>
+        </a>
+      </li>
+      <li class="cs-item">
+        <a href="" class="cs-link">
+          <img
+            class="cs-icon"
+            src="/assets/svgs/women.svg"
+            loading="lazy"
+            decoding="async"
+            alt="icon"
+            width="40"
+            height="40"
+            aria-hidden="true"
+          />
+          <h3 class="cs-h3">Women's Health</h3>
+          <p class="cs-item-text">
+            Compassionate pharmacy solutions across every stage of life — from
+            contraception and fertility support to menopause and beyond.
+          </p>
+        </a>
+      </li>
+      <li class="cs-item">
+        <a href="" class="cs-link">
+          <img
+            class="cs-icon"
+            src="/assets/svgs/bird.svg"
+            loading="lazy"
+            decoding="async"
+            alt="icon"
+            width="40"
+            height="40"
+            aria-hidden="true"
+          />
+          <h3 class="cs-h3">Veterinary Medicine</h3>
+          <p class="cs-item-text">
+            Custom compounded medications for pets — from flavored formulas your
+            pet will actually take to precise dosing for unique sizes and
+            species.
+          </p>
+        </a>
+      </li>
+    </ul>
+  </div>
 </section>
 
 <!-- ============================================ -->
@@ -301,83 +428,92 @@ Custom creams, gels, and solutions for acne, rosacea, hyperpigmentation, eczema,
 <!-- ============================================ -->
 
 <section id="cta-1071">
-    <div class="cs-container">
-        <div class="cs-content">
-            <div class="cs-flex">
-                <span class="cs-topper">Your Medication, Ready When You Are</span>
-                <h2 class="cs-title">Refilling or switching to Precision Rx is simple.</h2>
-            </div>
-            <div class="cs-button-box">
-                <button href="/" class="button" style="--clr: #7808d0">
-  <span class="button__icon-wrapper">
-    <svg
-      viewBox="0 0 14 15"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="button__icon-svg"
-      width="10"
-    >
-      <path
-        d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-        fill="currentColor"
-      ></path>
-    </svg>
+  <div class="cs-container">
+    <div class="cs-content">
+      <div class="cs-flex">
+        <span class="cs-topper">Your Medication, Ready When You Are</span>
+        <h2 class="cs-title">
+          Refilling or switching to Precision Rx is simple.
+        </h2>
+      </div>
+      <div class="cs-button-box">
+        <button href="/" class="button" style="--clr: #7808d0">
+          <span class="button__icon-wrapper">
+            <svg
+              viewBox="0 0 14 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="button__icon-svg"
+              width="10"
+            >
+              <path
+                d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                fill="currentColor"
+              ></path>
+            </svg>
 
-    <svg
-      viewBox="0 0 14 15"
-      fill="none"
-      width="10"
-      xmlns="http://www.w3.org/2000/svg"
-      class="button__icon-svg button__icon-svg--copy"
-    >
-      <path
-        d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-        fill="currentColor"
-      ></path>
-    </svg>
-  </span>
-  Refill a Prescription
-</button>
-                <button href="#" class="button-2" style="--clr: #7808d0">
-  <span class="button__icon-wrapper">
-    <svg
-      viewBox="0 0 14 15"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="button__icon-svg"
-      width="10"
-    >
-      <path
-        d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-        fill="var(--secondary)"
-      ></path>
-    </svg>
+            <svg
+              viewBox="0 0 14 15"
+              fill="none"
+              width="10"
+              xmlns="http://www.w3.org/2000/svg"
+              class="button__icon-svg button__icon-svg--copy"
+            >
+              <path
+                d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </span>
+          Refill a Prescription
+        </button>
+        <button href="#" class="button-2" style="--clr: #7808d0">
+          <span class="button__icon-wrapper">
+            <svg
+              viewBox="0 0 14 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="button__icon-svg"
+              width="10"
+            >
+              <path
+                d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                fill="var(--secondary)"
+              ></path>
+            </svg>
 
-    <svg
-      viewBox="0 0 14 15"
-      fill="none"
-      width="10"
-      xmlns="http://www.w3.org/2000/svg"
-      class="button__icon-svg button__icon-svg--copy"
-    >
-      <path
-        d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-        fill="currentColor"
-      ></path>
-    </svg>
-  </span>
-  Transfer My RX
-</button>
-            </div>
-        </div>
+            <svg
+              viewBox="0 0 14 15"
+              fill="none"
+              width="10"
+              xmlns="http://www.w3.org/2000/svg"
+              class="button__icon-svg button__icon-svg--copy"
+            >
+              <path
+                d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </span>
+          Transfer My RX
+        </button>
+      </div>
     </div>
-    <picture class="cs-background">
-        <!--Mobile Image-->
-        <source media="(max-width: 600px)" srcset="/assets/images/cta.webp">
-        <!--Tablet and above Image-->
-        <source media="(min-width: 601px)" srcset="/assets/images/cta.webp">
-        <img loading="lazy" decoding="async" src="/assets/images/cta.webp" alt="Precision RX Compounding Pharmacy" width="1280" height="568">
-    </picture>
+  </div>
+  <picture class="cs-background">
+    <!--Mobile Image-->
+    <source media="(max-width: 600px)" srcset="/assets/images/cta.webp" />
+    <!--Tablet and above Image-->
+    <source media="(min-width: 601px)" srcset="/assets/images/cta.webp" />
+    <img
+      loading="lazy"
+      decoding="async"
+      src="/assets/images/cta.webp"
+      alt="Precision RX Compounding Pharmacy"
+      width="1280"
+      height="568"
+    />
+  </picture>
 </section>
 
 <!-- ============================================ -->
@@ -385,45 +521,51 @@ Custom creams, gels, and solutions for acne, rosacea, hyperpigmentation, eczema,
 <!-- ============================================ -->
 
 <section id="steps-1675">
-    <div class="cs-container">
-        <div class="cs-content">
-            <span class="cs-topper">Our Process</span>
-            <h2 class="cs-title">How It Works</h2>
-            <p class="cs-text">
-                Getting your custom medication is straightforward.<br><em>Here's what to expect</em>.
-            </p>
-        </div>
-        <ul class="cs-card-group">
-            <li class="cs-item">
-                <span class="cs-number">1</span>
-                <h3 class="cs-h3">Consult Your Doctor</h3>
-                <p class="cs-item-text">
-                    Have your physician prescribe the custom formulation you need — or ask them to contact us directly.
-                </p>
-            </li>
-            <li class="cs-item">
-                <span class="cs-number">2</span>
-                <h3 class="cs-h3">Send Us the Rx</h3>
-                <p class="cs-item-text">
-                    Your prescriber sends us the prescription electronically, by fax, or you can bring it in person.
-                </p>
-            </li>
-            <li class="cs-item">
-                <span class="cs-number">3</span>
-                <h3 class="cs-h3">We Compound It</h3>
-                <p class="cs-item-text">
-                    We formulate your medication using pharmaceutical-grade ingredients to precise specifications.
-                </p>
-            </li>
-            <li class="cs-item">
-                <span class="cs-number">4</span>
-                <h3 class="cs-h3">Pick Up or Delivery</h3>
-                <p class="cs-item-text">
-                    Collect in-store or arrange delivery. We're available by phone or text for any follow-up questions.
-                </p>
-            </li>
-        </ul>
+  <div class="cs-container">
+    <div class="cs-content">
+      <span class="cs-topper">Our Process</span>
+      <h2 class="cs-title">How It Works</h2>
+      <p class="cs-text">
+        Getting your custom medication is straightforward.<br /><em
+          >Here's what to expect</em
+        >.
+      </p>
     </div>
+    <ul class="cs-card-group">
+      <li class="cs-item">
+        <span class="cs-number">1</span>
+        <h3 class="cs-h3">Consult Your Doctor</h3>
+        <p class="cs-item-text">
+          Have your physician prescribe the custom formulation you need — or ask
+          them to contact us directly.
+        </p>
+      </li>
+      <li class="cs-item">
+        <span class="cs-number">2</span>
+        <h3 class="cs-h3">Send Us the Rx</h3>
+        <p class="cs-item-text">
+          Your prescriber sends us the prescription electronically, by fax, or
+          you can bring it in person.
+        </p>
+      </li>
+      <li class="cs-item">
+        <span class="cs-number">3</span>
+        <h3 class="cs-h3">We Compound It</h3>
+        <p class="cs-item-text">
+          We formulate your medication using pharmaceutical-grade ingredients to
+          precise specifications.
+        </p>
+      </li>
+      <li class="cs-item">
+        <span class="cs-number">4</span>
+        <h3 class="cs-h3">Pick Up or Delivery</h3>
+        <p class="cs-item-text">
+          Collect in-store or arrange delivery. We're available by phone or text
+          for any follow-up questions.
+        </p>
+      </li>
+    </ul>
+  </div>
 </section>
 
 <!-- ============================================ -->
@@ -431,80 +573,286 @@ Custom creams, gels, and solutions for acne, rosacea, hyperpigmentation, eczema,
 <!-- ============================================ -->
 
 <section id="sbs-1161">
-    <div class="cs-container">
-        <div class="cs-image-group">
-            <!--Top left image-->
-            <picture class="cs-picture cs-picture1">
-                <!--Mobile Image-->
-                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/mechanic25.jpg">
-                <!--Tablet and above Image-->
-                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/mechanic25.jpg">
-                <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/mechanic25.jpg" alt="appliance" width="630" height="390">
-            </picture>
-            <!--Bottom right image-->
-            <picture class="cs-picture cs-picture2">
-                <!--Mobile Image-->
-                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/mechanic26.jpg">
-                <!--Tablet and above Image-->
-                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/mechanic26.jpg">
-                <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/mechanic26.jpg" alt="appliance" width="461" height="300">
-            </picture>
-            <!--Splash Graphic-->
-            <img class="cs-graphic cs-graphic1" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/splash-4.svg" alt="splash" width="1154" height="505" aria-hidden="true">
-            <div class="cs-box">
-                <span class="cs-number">2500+</span>
-                <span class="cs-desc">Cars repaired this year</span>
-            </div>
-        </div>
-        <div class="cs-content">
-            <span class="cs-topper">Precision RX</span>
-            <h2 class="cs-title">Partnering with
-prescribers across the region</h2>
-            <p class="cs-text">
-                When commercial options fall short for your patient, we're the partner you call. Precision Rx works closely with physicians, dermatologists, OB/GYNs, and other specialists to develop formulations that improve patient outcomes and compliance.
-            </p>
-            <ul class="cs-ul">
-                <li class="cs-li">Custom dosage strengths not available commercially</li>
-                <li class="cs-li">Allergen-free and dye-free formulations on request</li>
-                <li class="cs-li">Alternative delivery routes — transdermal, sublingual, topical</li>
-                <li class="cs-li">Discontinued or hard-to-find medications recreated</li>
-                <li class="cs-li">Direct pharmacist consultation for complex cases</li>
-                <li class="cs-li">Fast turnaround with physician communication support</li>
-            </ul>
-            <button href="#" class="button" style="--clr: #7808d0">
-  <span class="button__icon-wrapper">
-    <svg
-      viewBox="0 0 14 15"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="button__icon-svg"
-      width="10"
-    >
-      <path
-        d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-        fill="currentColor"
-      ></path>
-    </svg>
-
-    <svg
-      viewBox="0 0 14 15"
-      fill="none"
-      width="10"
-      xmlns="http://www.w3.org/2000/svg"
-      class="button__icon-svg button__icon-svg--copy"
-    >
-      <path
-        d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-        fill="currentColor"
-      ></path>
-    </svg>
-  </span>
-  Contact Our Pharmacists
-</button>
-        </div>
+  <div class="cs-container">
+    <div class="cs-image-group">
+      <!--Top left image-->
+      <picture class="cs-picture cs-picture1">
+        <!--Mobile Image-->
+        <source
+          media="(max-width: 600px)"
+          srcset="/assets/images/partner-1.webp"
+        />
+        <!--Tablet and above Image-->
+        <source
+          media="(min-width: 601px)"
+          srcset="/assets/images/partner-1.webp"
+        />
+        <img
+          loading="lazy"
+          decoding="async"
+          src="/assets/images/partner-1.webp"
+          alt="Partner With Precision RX"
+          width="630"
+          height="390"
+        />
+      </picture>
+      <!--Bottom right image-->
+      <picture class="cs-picture cs-picture2">
+        <!--Mobile Image-->
+        <source
+          media="(max-width: 600px)"
+          srcset="/assets/images/partner-2.webp"
+        />
+        <!--Tablet and above Image-->
+        <source
+          media="(min-width: 601px)"
+          srcset="/assets/images/partner-2.webp"
+        />
+        <img
+          loading="lazy"
+          decoding="async"
+          src="/assets/images/partner-2.webp"
+          alt="appliance"
+          width="461"
+          height="300"
+        />
+      </picture>
+      <!--Splash Graphic-->
+      <img
+        class="cs-graphic cs-graphic1"
+        loading="lazy"
+        decoding="async"
+        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/splash-4.svg"
+        alt="splash"
+        width="1154"
+        height="505"
+        aria-hidden="true"
+      />
+      <div class="cs-box">
+        <span class="cs-desc"
+          >Proudly serving Alabama, Georgia, Mississippi, and surrounding
+          states.</span
+        >
+      </div>
     </div>
+    <div class="cs-content">
+      <span class="cs-topper">Precision RX</span>
+      <h2 class="cs-title">Partnering with prescribers across the region</h2>
+      <p class="cs-text">
+        When commercial options fall short for your patient, we're the partner
+        you call. Precision Rx works closely with physicians, dermatologists,
+        OB/GYNs, and other specialists to develop formulations that improve
+        patient outcomes and compliance.
+      </p>
+      <ul class="cs-ul">
+        <li class="cs-li">
+          Custom dosage strengths not available commercially
+        </li>
+        <li class="cs-li">
+          Allergen-free and dye-free formulations on request
+        </li>
+        <li class="cs-li">
+          Alternative delivery routes — transdermal, sublingual, topical
+        </li>
+        <li class="cs-li">
+          Discontinued or hard-to-find medications recreated
+        </li>
+        <li class="cs-li">Direct pharmacist consultation for complex cases</li>
+        <li class="cs-li">
+          Fast turnaround with physician communication support
+        </li>
+      </ul>
+      <button href="#" class="button" style="--clr: #7808d0">
+        <span class="button__icon-wrapper">
+          <svg
+            viewBox="0 0 14 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="button__icon-svg"
+            width="10"
+          >
+            <path
+              d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+              fill="currentColor"
+            ></path>
+          </svg>
+
+          <svg
+            viewBox="0 0 14 15"
+            fill="none"
+            width="10"
+            xmlns="http://www.w3.org/2000/svg"
+            class="button__icon-svg button__icon-svg--copy"
+          >
+            <path
+              d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </span>
+        Contact Our Pharmacists
+      </button>
+    </div>
+  </div>
 </section>
-                                
-                                
-    {% include 'sections/cta.html' %}
-{% endblock %}
+
+<!-- ============================================ -->
+<!--                    Blog                      -->
+<!-- ============================================ -->
+
+<section id="blog-2082">
+  <div class="cs-container">
+    <div class="cs-content">
+      <span class="cs-topper">From Our Pharmacy</span>
+      <h2 class="cs-title">Compounding Insights & Local Health Resources</h2>
+      <p class="cs-text">
+        Helpful guides, health tips, and compounding education from the
+        pharmacists at Precision Rx — proudly serving Vestavia Hills and the
+        greater Birmingham area.
+      </p>
+    </div>
+    <ul class="cs-card-group">
+      <li class="cs-item">
+        <picture class="cs-picture">
+          <source
+            media="(max-width: 600px)"
+            srcset="/assets/images/blog-1.webp"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="/assets/images/blog-1.webp"
+          />
+          <img
+            loading="lazy"
+            decoding="async"
+            src="/assets/images/blog-1.webp"
+            alt="people"
+            width="411"
+            height="280"
+          />
+        </picture>
+        <div class="cs-flex">
+          <span class="cs-date">Feb<br />24</span>
+          <div class="cs-info-wrapper"></div>
+          <a class="cs-link" href="">
+            <h3 class="cs-h3">
+              What Is Compounding, and Why Birmingham Patients Are Making the
+              Switch
+            </h3>
+          </a>
+          A plain-language guide to what compounding is, who it's for, and why
+          more patients in the Birmingham area are making the switch from chain
+          pharmacies to personalized care.
+          <button href="" class="button-small" style="--clr: #7808d0">
+            Continue Reading
+          </button>
+        </div>
+      </li>
+      <li class="cs-item">
+        <picture class="cs-picture">
+          <source
+            media="(max-width: 600px)"
+            srcset="/assets/images/blog-2.webp"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="/assets/images/blog-2.webp"
+          />
+          <img
+            loading="lazy"
+            decoding="async"
+            src="/assets/images/blog-2.webp"
+            alt="people"
+            width="411"
+            height="280"
+          />
+        </picture>
+        <div class="cs-flex">
+          <span class="cs-date">Feb<br />9</span>
+          <div class="cs-info-wrapper"></div>
+          <a class="cs-link" href="">
+            <h3 class="cs-h3">
+              BHRT in Vestavia Hills: What to Expect From Bioidentical Hormone
+              Therapy
+            </h3>
+          </a>
+          Hormone imbalance looks different for everyone. Here's how Precision
+          Rx works with your physician to create a BHRT formula matched to your
+          exact lab results.<br /><br />
+          <button href="" class="button-small" style="--clr: #7808d0">
+            Continue Reading
+          </button>
+        </div>
+      </li>
+      <li class="cs-item">
+        <picture class="cs-picture">
+          <source
+            media="(max-width: 600px)"
+            srcset="/assets/images/blog-3.webp"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="/assets/images/blog-3.webp"
+          />
+          <img
+            loading="lazy"
+            decoding="async"
+            src="/assets/images/blog-3.webp"
+            alt="people"
+            width="411"
+            height="280"
+          />
+        </picture>
+        <div class="cs-flex">
+          <span class="cs-date">Jan<br />18</span>
+          <div class="cs-info-wrapper"></div>
+          <a class="cs-link" href="">
+            <h3 class="cs-h3">
+              GLP-1 Compounding in Birmingham: What Patients Need to Know in
+              2026
+            </h3>
+          </a>
+          With demand for GLP-1 medications at an all-time high, many Birmingham
+          patients are turning to compounding pharmacies for access and
+          affordability. Here's what you should know.
+          <button href="" class="button-small" style="--clr: #7808d0">
+            Continue Reading
+          </button>
+        </div>
+      </li>
+    </ul>
+    <br />
+    <button href="#" class="button" style="--clr: #7808d0">
+      <span class="button__icon-wrapper">
+        <svg
+          viewBox="0 0 14 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="button__icon-svg"
+          width="10"
+        >
+          <path
+            d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+            fill="currentColor"
+          ></path>
+        </svg>
+
+        <svg
+          viewBox="0 0 14 15"
+          fill="none"
+          width="10"
+          xmlns="http://www.w3.org/2000/svg"
+          class="button__icon-svg button__icon-svg--copy"
+        >
+          <path
+            d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+            fill="currentColor"
+          ></path>
+        </svg>
+      </span>
+      View All Insights
+    </button>
+  </div>
+</section>
+
+{% include 'sections/cta.html' %} {% endblock %}

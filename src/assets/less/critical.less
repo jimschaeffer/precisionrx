@@ -55,7 +55,7 @@
 
         .cs-title {
             /* 39px - 61px */
-            font-size: clamp(2.4375rem, 5.975vw, 4.5125rem);
+            font-size: clamp(3.4375rem, 5.975vw, 4.5125rem);
             margin-bottom: (16/16rem);
             color: #fff;
             em {
@@ -166,6 +166,10 @@
                 background: linear-gradient(90deg, rgba(0, 0, 0, 0.4) 25.47%, rgba(0, 0, 0, 0) 50.01%);
             }
         }
+        
+        .cs-title {
+        font-size: clamp(2.4375rem, 5.975vw, 4.5125rem);
+        }
     }
 }
 
@@ -194,6 +198,8 @@
 @media only screen and (min-width: 0rem) {
     #services-1305 {
         padding: var(--sectionPadding);
+        padding-top: 0.5rem;
+        padding-bottom: 0rem;
 
         .cs-container {
             /* changes to 1920px at tablet */

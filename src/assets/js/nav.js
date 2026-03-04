@@ -8,7 +8,7 @@
 			body: "body",
 			navigation: "#cs-navigation",
 			hamburger: "#cs-navigation .cs-toggle",
-			menuWrapper: "#cs-ul-wrapper",
+			menuWrapper: ".cs-ul-wrapper",
 			dropdownToggle: ".cs-dropdown-toggle",
 			dropdown: ".cs-dropdown",
 			dropdownMenu: ".cs-drop-ul",

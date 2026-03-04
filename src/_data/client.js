@@ -14,6 +14,7 @@ module.exports = {
   socials: {
     facebook: "https://www.facebook.com/p/Precision-Rx-61566822557757/",
     instagram: "https://www.instagram.com/precisionrx_/",
+    tiktok: "https://www.tiktok.com/@precisionrx",
   },
   //! Make sure you include the file protocol (e.g. https://) and that NO TRAILING SLASH is included
   domain: "https://www.precisionrxcompounding.com",

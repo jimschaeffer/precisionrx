@@ -30,10 +30,14 @@
       <div class="cs-ul-wrapper">
         <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
           <li class="cs-li">
-            <a href="/" class="cs-li-link cs-active"> Home </a>
+            <a href="/" class="cs-li-link {% if page.url == '/' %} cs-active {% endif %}">
+    Home
+</a>
           </li>
           <li class="cs-li">
-            <a href="/" class="cs-li-link"> About </a>
+            <a href="/about" class="cs-li-link {% if page.url == '/about/' %} cs-active {% endif %}">
+    About
+</a>
           </li>
           <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown and it will work-->
           <li class="cs-li cs-dropdown" tabindex="0">
@@ -51,37 +55,61 @@
             </span>
             <ul class="cs-drop-ul">
               <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Hormone Therapy</a>
+                <a href="/hormone-replacement-therapy" class="cs-li-link cs-drop-link {% if page.url == '/hormone-replacement-therapy/' %} cs-active {% endif %}">
+    Hormone Replacement Therapy (HRT)
+</a>
               </li>
               <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Pain Management</a>
+                <a href="/womens-health" class="cs-li-link cs-drop-link {% if page.url == '/womens-health/' %} cs-active {% endif %}">
+    Women's Health
+</a>
               </li>
               <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Dermatology</a>
+                <a href="/pain-management" class="cs-li-link cs-drop-link {% if page.url == '/pain-management/' %} cs-active {% endif %}">
+    Pain Management
+</a>
               </li>
               <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link"
-                  >Pediatric Medicine</a
-                >
+                <a href="/dermatology" class="cs-li-link cs-drop-link {% if page.url == '/dermatology/' %} cs-active {% endif %}">
+    Dermatology
+</a>
               </li>
               <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Women's Health</a>
+                <a href="/pediatric-medicine" class="cs-li-link cs-drop-link {% if page.url == '/pediatric-medicine/' %} cs-active {% endif %}">
+    Pediatric Medicine
+</a>
               </li>
               <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link"
-                  >Veterinary Medicine</a
-                >
+                <a href="/ent-compounding" class="cs-li-link cs-drop-link {% if page.url == '/ent-compounding/' %} cs-active {% endif %}">
+    ENT Compounding
+</a>
+              </li>
+              <li class="cs-drop-li">
+                <a href="/dental-compounding" class="cs-li-link cs-drop-link {% if page.url == '/dental-compounding/' %} cs-active {% endif %}">
+    Dental Compounding
+</a>
+              </li>
+              <li class="cs-drop-li">
+                <a href="/veterinary-medicine" class="cs-li-link cs-drop-link {% if page.url == '/veterinary-medicine/' %} cs-active {% endif %}">
+    Veterinary Medicine
+</a>
               </li>
             </ul>
           </li>
           <li class="cs-li">
-            <a href="" class="cs-li-link"> For Prescribers </a>
+            <a href="/for-prescribers" class="cs-li-link {% if page.url == '/for-prescribers/' %} cs-active {% endif %}">
+    For Prescribers
+</a>
           </li>
           <li class="cs-li">
-            <a href="/blog" class="cs-li-link"> Insights </a>
+            <a href="/blog" class="cs-li-link {% if page.url == '/blog/' %} cs-active {% endif %}">
+    Insights
+</a>
           </li>
           <li class="cs-li">
-            <a href="" class="cs-li-link"> Contact </a>
+            <a href="/contact" class="cs-li-link {% if page.url == '/contact/' %} cs-active {% endif %}">
+    Contact
+</a>
           </li>
         </ul>
       </div>
@@ -131,10 +159,10 @@
             decoding="async"
           />
         </a>
-        <a href="" class="cs-social-link" aria-label="social media link">
+        <a href="{{client.socials.tiktok}}" class="cs-social-link" aria-label="social media link">
           <img
             class="cs-social-icon"
-            src="/assets/svgs/google-1.svg"
+            src="/assets/svgs/tiktok-1.svg"
             alt="logo"
             width="12"
             height="12"

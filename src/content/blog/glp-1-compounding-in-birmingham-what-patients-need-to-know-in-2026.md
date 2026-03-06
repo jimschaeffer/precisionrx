@@ -16,6 +16,7 @@ tags:
 image: /assets/images/blog/bunny.webp
 imageAlt: Pediatric Medicine
 ---
+
 Getting a child to take medication is hard enough. When the only available option is a tablet too large to swallow, a formula containing an allergen your child reacts to, or a dose that simply doesn't come in the right strength for their size — it becomes a real clinical problem. For families across the Birmingham area, pediatric compounding offers a practical solution that commercial pharmacies can't.
 
 At Precision Rx in Vestavia Hills, we work with pediatricians, parents, and other healthcare providers to create custom medications specifically designed for children — in the right dose, the right form, and often a flavor kids will actually accept.
@@ -139,9 +140,6 @@ In most cases, yes. We offer a wide range of flavoring options and will work wit
 **My child's medication was discontinued. Can you recreate it?**
 Often, yes. Discontinuation is one of the most common reasons families come to us. Bring your child's prescription or have their physician contact us, and we'll assess whether we can compound an equivalent preparation.
 
-**Is compounding covered by my child's insurance?**
-Coverage varies by plan. We accept Medicaid and work with most major insurance providers. We recommend calling your insurer to confirm coverage for compounded medications before pickup.
-
 ---
 
-*Precision Rx Compounding is a licensed compounding pharmacy located in Vestavia Hills, Alabama. This article is for informational purposes only and does not constitute medical advice. Always consult your child's licensed healthcare provider before starting, stopping, or changing any medication.*
+_Precision Rx Compounding is a licensed compounding pharmacy located in Vestavia Hills, Alabama. This article is for informational purposes only and does not constitute medical advice. Always consult your child's licensed healthcare provider before starting, stopping, or changing any medication._

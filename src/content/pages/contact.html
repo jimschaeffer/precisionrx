@@ -4,35 +4,38 @@ description: "Contact Precision Rx Compounding Pharmacy in Vestavia Hills, AL. C
 permalink: "/contact/"
 ---
 
-{% extends "layouts/base.html" %}
-
-{% block head %}
-    <link rel="stylesheet" href="/assets/css/contact.css">
-    <link rel="preload" as="image" href="/assets/images/banner.webp"/>
-{% endblock %}
-
-{% block body %}
+{% extends "layouts/base.html" %} {% block head %}
+<link rel="stylesheet" href="/assets/css/contact.css" />
+<link rel="preload" as="image" href="/assets/images/banner.webp" />
+{% endblock %} {% block body %}
 
 <!-- ============================================ -->
 <!--                   Banner                     -->
 <!-- ============================================ -->
 
 <div id="banner-2285">
-    <div class="cs-container">
-        <span class="cs-int-title">Contact Us</span><br>
-        <div class="cs-breadcrumbs">
-            <a href="/" class="cs-link">Home</a>
-            <a href="" class="cs-link cs-active">Contact</a>
-        </div>
+  <div class="cs-container">
+    <span class="cs-int-title">Contact Us</span><br />
+    <div class="cs-breadcrumbs">
+      <a href="/" class="cs-link">Home</a>
+      <a href="" class="cs-link cs-active">Contact</a>
     </div>
-    <!--Background Image-->
-    <picture class="cs-background">
-        <!--Mobile Image-->
-        <source media="(max-width: 600px)" srcset="/assets/images/header.webp">
-        <!--Tablet and above Image-->
-        <source media="(min-width: 601px)" srcset="/assets/images/header.webp">
-        <img decoding="async" src="/assets/images/header.webp" alt="Prescription RX Header" width="1280" height="568" aria-hidden="true">
-    </picture>
+  </div>
+  <!--Background Image-->
+  <picture class="cs-background">
+    <!--Mobile Image-->
+    <source media="(max-width: 600px)" srcset="/assets/images/header.webp" />
+    <!--Tablet and above Image-->
+    <source media="(min-width: 601px)" srcset="/assets/images/header.webp" />
+    <img
+      decoding="async"
+      src="/assets/images/header.webp"
+      alt="Prescription RX Header"
+      width="1280"
+      height="568"
+      aria-hidden="true"
+    />
+  </picture>
 </div>
 
 <!-- ============================================ -->
@@ -40,89 +43,168 @@ permalink: "/contact/"
 <!-- ============================================ -->
 
 <section id="contact-1150">
-    <div class="cs-container">
-        <div class="cs-content">
-            <span class="cs-topper">Contact Us</span>
-            <h2 class="cs-title">Get in Touch With Precision Rx</h2>
-        </div>
-        <div class="cs-contact-group">
-            <picture class="cs-picture">
-                <!--Mobile Image-->
-                <source media="(max-width: 600px)" srcset="/assets/images/contact.webp">
-                <!--Tablet and above Image-->
-                <source media="(min-width: 601px)" srcset="/assets/images/contact.webp">
-                <img loading="lazy" decoding="async" src="/assets/images/contact.webp" alt="Contact Precision RX Compounding" width="630" height="300">
-            </picture>
-            <p class="cs-contact-text">
-                Whether you have questions about a compounded medication, want to transfer a prescription, or are a physician looking to refer a patient, our team is ready to help. Reach out by phone, stop by our Vestavia Hills location, or fill out our contact form and we'll get back to you soon.
-            </p>
-            <ul class="cs-ul">
-                <li class="cs-li">
-                    <picture class="cs-icon-wrapper">
-                        <img aria-hidden="true" src="/assets/svgs/phone-contact.svg" alt="phone icon" class="cs-icon" width="40" height="40" decoding="async">
-                    </picture>
-                    <div class="cs-flex-group">
-                        <span class="cs-header">Phone</span>
-                        <a href="tel:{{client.phoneFormatted}}" class="cs-link">{{client.phoneFormatted}}
-                        </a>
-                    </div>
-                </li>
-                <li class="cs-li">
-                    <picture class="cs-icon-wrapper">
-                        <img aria-hidden="true" src="/assets/svgs/pin-contact.svg" alt="address icon" class="cs-icon" width="40" height="40" decoding="async">
-                    </picture>
-                    <div class="cs-flex-group">
-                        <span class="cs-header">Address</span>
-                        <a href="{{client.address.mapLink}}" class="cs-link">{{client.address.lineOne}}<br>{{client.address.city}}, {{client.address.state}} {{client.address.zip}}</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!--Form-->
-        <form class="cs-form" id="cs-form-1150" name="Contact Form" method="post" netlify>
-            <label class="cs-label cs-fname">
-                First Name
-                <input class="cs-input" required type="text" id="fname-1150" name="first-name" placeholder="First Name">
-            </label>
-            <label class="cs-label cs-lname">
-                Last Name
-                <input class="cs-input" required type="text" id="lname-1150" name="last-name" placeholder="Last Name">
-            </label>
-            <label class="cs-label">
-                Email Address
-                <input class="cs-input" required type="email" id="email-1150" name="email" placeholder="Email Address">
-            </label>
-            <label class="cs-label">
-                Phone Number
-                <input class="cs-input" type="tel" id="phone-1150" name="phone" placeholder="Phone Number">
-            </label>
-            <label class="cs-label">
-                I am a...
-                <select class="cs-input cs-select" name="user-type" id="user-type-1150">
-                    <option value="" disabled selected>Select one...</option>
-                    <option value="patient">Patient</option>
-                    <option value="caregiver">Caregiver</option>
-                    <option value="physician">Physician</option>
-                    <option value="other-provider">Other Provider</option>
-                    <option value="other">Other</option>
-                </select>
-            </label>
-            <label class="cs-label">
-                How can we help you?
-                <select class="cs-input cs-select" name="inquiry-type" id="inquiry-type-1150">
-                    <option value="" disabled selected>Select one...</option>
-                    <option value="general">General Question</option>
-                    <option value="transfer">Transfer a Prescription</option>
-                    <option value="refill">Refill a Prescription</option>
-                    <option value="referral">Physician Referral</option>
-                    <option value="other">Other</option>
-                </select>
-            </label>
-            <label class="cs-label">
-                Message
-                <textarea class="cs-input cs-textarea" name="Message" id="message-1150" placeholder="Your message..."></textarea>
-            </label>
-            <button class="button" type="submit" style="--clr: #7808d0">
+  <div class="cs-container">
+    <div class="cs-content">
+      <span class="cs-topper">Contact Us</span>
+      <h2 class="cs-title">Get in Touch With Precision Rx</h2>
+    </div>
+    <div class="cs-contact-group">
+      <picture class="cs-picture">
+        <!--Mobile Image-->
+        <source
+          media="(max-width: 600px)"
+          srcset="/assets/images/contact.webp"
+        />
+        <!--Tablet and above Image-->
+        <source
+          media="(min-width: 601px)"
+          srcset="/assets/images/contact.webp"
+        />
+        <img
+          loading="lazy"
+          decoding="async"
+          src="/assets/images/contact.webp"
+          alt="Contact Precision RX Compounding"
+          width="630"
+          height="300"
+        />
+      </picture>
+      <p class="cs-contact-text">
+        Whether you have questions about a compounded medication, want to
+        transfer a prescription, or are a physician looking to refer a patient,
+        our team is ready to help. Reach out by phone, stop by our Vestavia
+        Hills location, or fill out our contact form and we'll get back to you
+        soon.
+      </p>
+      <ul class="cs-ul">
+        <li class="cs-li">
+          <picture class="cs-icon-wrapper">
+            <img
+              aria-hidden="true"
+              src="/assets/svgs/phone-contact.svg"
+              alt="phone icon"
+              class="cs-icon"
+              width="40"
+              height="40"
+              decoding="async"
+            />
+          </picture>
+          <div class="cs-flex-group">
+            <span class="cs-header">Phone</span>
+            <a href="tel:{{client.phoneFormatted}}" class="cs-link"
+              >{{client.phoneFormatted}}
+            </a>
+          </div>
+        </li>
+        <li class="cs-li">
+          <picture class="cs-icon-wrapper">
+            <img
+              aria-hidden="true"
+              src="/assets/svgs/pin-contact.svg"
+              alt="address icon"
+              class="cs-icon"
+              width="40"
+              height="40"
+              decoding="async"
+            />
+          </picture>
+          <div class="cs-flex-group">
+            <span class="cs-header">Address</span>
+            <a href="{{client.address.mapLink}}" class="cs-link"
+              >{{client.address.lineOne}}<br />{{client.address.city}},
+              {{client.address.state}} {{client.address.zip}}</a
+            >
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!--Form-->
+    <form
+      class="cs-form"
+      id="cs-form-1150"
+      name="Contact Form"
+      method="post"
+      netlify
+    >
+      <label class="cs-label cs-fname">
+        First Name
+        <input
+          class="cs-input"
+          required
+          type="text"
+          id="fname-1150"
+          name="first-name"
+          placeholder="First Name"
+        />
+      </label>
+      <label class="cs-label cs-lname">
+        Last Name
+        <input
+          class="cs-input"
+          required
+          type="text"
+          id="lname-1150"
+          name="last-name"
+          placeholder="Last Name"
+        />
+      </label>
+      <label class="cs-label">
+        Email Address
+        <input
+          class="cs-input"
+          required
+          type="email"
+          id="email-1150"
+          name="email"
+          placeholder="Email Address"
+        />
+      </label>
+      <label class="cs-label">
+        Phone Number
+        <input
+          class="cs-input"
+          type="tel"
+          id="phone-1150"
+          name="phone"
+          placeholder="Phone Number"
+        />
+      </label>
+      <label class="cs-label">
+        I am a...
+        <select class="cs-input cs-select" name="user-type" id="user-type-1150">
+          <option value="" disabled selected>Select one...</option>
+          <option value="patient">Patient</option>
+          <option value="caregiver">Caregiver</option>
+          <option value="physician">Physician</option>
+          <option value="other-provider">Other Provider</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+      <label class="cs-label">
+        How can we help you?
+        <select
+          class="cs-input cs-select"
+          name="inquiry-type"
+          id="inquiry-type-1150"
+        >
+          <option value="" disabled selected>Select one...</option>
+          <option value="general">General Question</option>
+          <option value="transfer">Transfer a Prescription</option>
+          <option value="refill">Refill a Prescription</option>
+          <option value="referral">Physician Referral</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+      <label class="cs-label">
+        Message
+        <textarea
+          class="cs-input cs-textarea"
+          name="Message"
+          id="message-1150"
+          placeholder="Your message..."
+        ></textarea>
+      </label>
+      <button class="button" type="submit" style="--clr: #7808d0">
         <span class="button__icon-wrapper">
           <svg
             viewBox="0 0 14 15"
@@ -152,11 +234,29 @@ permalink: "/contact/"
         </span>
         Send Message
       </button>
-      <p style="font-size: 0.8rem; color: #666; margin-top: 1rem; line-height: 1.5;">
-        <strong>Privacy Notice:</strong> This form is not a secure or HIPAA-compliant channel. Please do not include prescription numbers, insurance details, medical history, or other protected health information in your message. For sensitive matters, call us directly at <strong><a href="tel:{{client.phoneForTel}}" style="color: inherit; font-size: inherit;">{{client.phoneFormatted}}</a></strong>. Information submitted here is used only to respond to your inquiry and is never shared with third parties.
+      <p
+        style="
+          font-size: 0.8rem;
+          color: #666;
+          margin-top: 1rem;
+          line-height: 1.5;
+        "
+      >
+        <strong>Privacy Notice:</strong> This form is not a secure or
+        HIPAA-compliant channel. Please do not include prescription numbers,
+        medical history, or other protected health information in your message.
+        For sensitive matters, call us directly at
+        <strong
+          ><a
+            href="tel:{{client.phoneForTel}}"
+            style="color: inherit; font-size: inherit"
+            >{{client.phoneFormatted}}</a
+          ></strong
+        >. Information submitted here is used only to respond to your inquiry
+        and is never shared with third parties.
       </p>
-        </form>
-    </div>
+    </form>
+  </div>
 </section>
 
 {% endblock %}

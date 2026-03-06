@@ -1,6 +1,6 @@
 module.exports = {
   name: "Precision RX Compounding Pharmacy",
-  email: "info@precisionrxcompounding.com",
+  email: "fax.precisionrx@gmail.com",
   phoneForTel: "+12058230780",
   phoneFormatted: "(205) 823-0780",
   address: {

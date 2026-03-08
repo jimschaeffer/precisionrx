@@ -41,7 +41,7 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
   <div class="cs-container">
     <div class="cs-content">
       <span class="cs-topper">Precision RX Compounding</span>
-      <h1 class="cs-title">Medications <em>Precisely</em> Made For You</h1>
+      <h1 class="cs-title">Medications Precisely Made For You</h1>
       <p class="cs-text">
         At Precision Rx, we go beyond the standard prescription. Our pharmacists
         craft custom-compounded medications tailored to your exact dose, form,
@@ -75,7 +75,7 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
             ></path>
           </svg>
         </span>
-        Refill a Prescription
+        Contact Us
       </a>
     </div>
   </div>
@@ -201,8 +201,7 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
       <!--Floating Box-->
       <div class="cs-box">
         <span class="cs-desc"
-          >Serving Vestavia Hills and the greater Birmingham area since
-          2014.</span
+          >Serving Vestavia Hills, Birmingham, and patients and physicians across Alabama since 2014.</span
         >
       </div>
       <!--Image-->
@@ -236,7 +235,7 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
         that's easier to take, we build it from scratch with
         pharmaceutical-grade ingredients and rigorous quality standards.
       </p>
-      <a href="/" class="button" style="--clr: #7808d0">
+      <a href="/about" class="button" style="--clr: #7808d0">
         <span class="button__icon-wrapper">
           <svg
             viewBox="0 0 14 15"
@@ -264,7 +263,7 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
             ></path>
           </svg>
         </span>
-        Contact Us
+        Learn More
       </a>
       <ul class="cs-ul">
         <li class="cs-item">
@@ -465,9 +464,9 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
               ></path>
             </svg>
           </span>
-          Refill a Prescription
+          Contact Us
         </a>
-        <a href="/contact" class="button-2" style="--clr: #7808d0">
+        <a href="tel:{{client.phoneForTel}}" class="button-2" style="--clr: #7808d0">
           <span class="button__icon-wrapper">
             <svg
               viewBox="0 0 14 15"
@@ -495,7 +494,7 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
               ></path>
             </svg>
           </span>
-          Transfer My RX
+          Call {{client.phoneFormatted}}
         </a>
       </div>
     </div>
@@ -558,9 +557,9 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
       </li>
       <li class="cs-item">
         <span class="cs-number">4</span>
-        <h3 class="cs-h3">Pick Up or Delivery</h3>
+        <h3 class="cs-h3">Pick Up or Shipped</h3>
         <p class="cs-item-text">
-          Collect in-store or arrange delivery. We're available by phone or text
+          Collect in-store or arrange for it to be shipped. We're available by phone or text
           for any follow-up questions.
         </p>
       </li>
@@ -630,8 +629,7 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
       />
       <div class="cs-box">
         <span class="cs-desc"
-          >Proudly serving Alabama, Georgia, Mississippi, and surrounding
-          states.</span
+          >Proudly serving Alabama, Florida, and Georgia.</span
         >
       </div>
     </div>
@@ -697,45 +695,23 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
 </section>
 
 <!-- ============================================ -->
-<!--                   Reviews                    -->
+<!--                     Quote                    -->
 <!-- ============================================ -->
 
-<section id="reviews-438">
-  <div class="cs-container">
-    <div class="cs-content">
-      <p class="cs-review">
-        <!--Placed inside p tag for more consistent positioning-->
-        <img
-          class="cs-quote"
-          src="/assets/svgs/quote-left.svg"
-          alt="quote icon"
-          width="120"
-          height="106"
-          loading="lazy"
-          decoding="async"
-          aria-hidden="true"
-        />
-        “This is an efficient pharmacy with friendly staff. They called to let
-        me know my prescription would be ready within 30 minutes -- I still had
+<section id="quote-2141">
+    <div class="cs-container">
+        <div class="cs-content">
+            <img class="cs-quote-icon" loading="lazy" decoding="async" src="/assets/images/five-stars.png" alt="Five Stars" width="222" height="186" aria-hidden="true">
+            <p class="cs-quote">
+                “This is an efficient pharmacy with friendly staff. They called to let
+        me know my prescription would be ready within 30 minutes — I still had
         not even left the doctor's office yet! Super fast service.”
-      </p>
-      <span class="cs-author">Ashley D</span><br />Google Review
+            </p>
+            <span class="cs-name">Ashley D</span>
+            <span class="cs-job">Verified Google Review</span>
+        </div>
     </div>
-    <picture class="cs-picture">
-      <source media="(max-width: 600px)" srcset="/assets/images/quote-m.webp" />
-      <source media="(min-width: 601px)" srcset="/assets/images/quote.webp" />
-      <img
-        loading="lazy"
-        decoding="async"
-        src="/assets/images/quote.webp"
-        alt="Precision RX Review"
-        width="328"
-        height="540"
-        aria-hidden="true"
-      />
-    </picture>
-  </div>
-</section>
+  </section>
 
 <!-- ============================================ -->
 <!--                     FAQ                      -->

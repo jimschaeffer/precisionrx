@@ -1146,178 +1146,84 @@
 }
 
 /*-- -------------------------- -->
-<---          Reviews           -->
+<---           Quote            -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #reviews-438 {
-        /* change width to make sure there is 16px gap left and right */
-        width: 91.112%;
-        /* changes at tablet */
-        max-width: (550/16rem);
-        /* using margin instead of padding so the green bar can rest at the true bottom of the section, without padding interrupting it */
-        margin: var(--sectionPadding);
-        margin-left: auto;
-        margin-right: auto;
-        box-sizing: border-box;
-        border-radius: (24/16rem);
-        /* clips corners of green border */
-        overflow: hidden;
+    #quote-2141 {
+        /* 80px - 160px */
+        padding: clamp(5rem, 10vw, 6rem) (16/16rem);
+        background-color: #003e5e;
         position: relative;
-
-        &:before {
-            /* green bar */
-            content: "";
-            width: 100%;
-            height: (8/16rem);
-            background: var(--primaryLight);
-            opacity: 1;
-            position: absolute;
-            display: block;
-            bottom: 0;
-            left: 0;
-            z-index: 10;
-        }
+        z-index: 1;
 
         .cs-container {
             width: 100%;
+            max-width: (1280/16rem);
             margin: auto;
-            /* pushes down the same amount as the picture is pulled up */
-            margin-top: (93/16rem);
-            /* 20px - 108px left & right, clamp changes at desktop */
-            /* 48px - 100px bottom */
-            padding: 0 clamp(1.25rem, 6vw, 6.75rem) clamp(2.5rem, 8vw, 6.25rem);
-            border-radius: (24/16rem);
-            /* prevents padding and border from affecting height and width */
-            box-sizing: border-box;
-            background-color: #14142b;
+            margin-top: (48/16rem);
             display: flex;
-            justify-content: flex-end;
-            align-items: center;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
             position: relative;
-        }
-
-        .cs-review {
-            /* 16px - 25px */
-            font-size: clamp(1rem, 2vw, 1.5625rem);
-            line-height: 1.5em;
-            /* 24px - 48px changes at tablet */
-            margin: 0 0 clamp(1.5rem, 3vw, 3rem) 0;
-            color: #dad9e3;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cs-quote {
-            /* 40px - 120px , clamp changes at tablet */
-            width: clamp(2.5rem, 11vw, 7.5rem);
-            height: auto;
-            display: block;
-            position: absolute;
-            left: 0;
-            /* changes at tablet */
-            top: (-60/16rem);
-            z-index: -1;
-        }
-
-        .cs-author {
-            /* 16px - 31px */
-            font-size: clamp(1rem, 2.6vw, 1.9375rem);
-            font-weight: 700;
-            line-height: 1.2em;
-            color: #fafbfc;
-        }
-
-        .cs-picture {
-            /* 116px - 328px */
-            width: clamp(7.25rem, 24vw, 20.5rem);
-            margin-top: (-93/16rem);
-            margin-bottom: (36/16rem);
-            border-radius: (140/16rem);
-            border: clamp(8px, 1vw, 12px) solid #fff;
-            background-color: #fff;
-            box-sizing: content-box;
-            /* clips the img tag corners */
-            overflow: hidden;
-            /* width divided by height */
-            aspect-ratio: 328/504;
-            display: block;
-            /* sends it to the top of the flexbox */
-            order: -1;
-            position: relative;
-
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                /* makes it act like a background image */
-                object-fit: cover;
-                /* makes the top of the image line up at the top of the container */
-                object-position: top;
-            }
-        }
-    }
-}
-
-/* Tablet - 768px */
-@media only screen and (min-width: 48rem) {
-    #reviews-438 {
-        max-width: (1280/16rem);
-        .cs-container {
-            padding-top: (108/16rem);
-            flex-direction: row;
-            justify-content: space-between;
         }
 
         .cs-content {
-            width: 57%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
-        .cs-review {
-            /* 48px - 96px, clamp changes at desktop */
-            margin-bottom: clamp(3rem, 7vw, 6rem);
+        .cs-quote-icon {
+            /* 120px - 220px */
+            width: clamp(7.5rem, 12vw, 13.75rem);
+            height: auto;
+            display: block;
+            position: absolute;
+            /* -48px - -96px */
+            top: calc(clamp(3rem, 8vw, 4rem)*-1);
+            z-index: -1;   
         }
 
         .cs-quote {
-            /* 80px - 120px , clamp changes at tablet */
-            width: clamp(5rem, 8vw, 7.5rem);
-            top: (-53/16rem);
-            /* 20px - 64px */
-            left: ~"calc(clamp(1.25rem, 2vw, 4rem) *-1)";
+            /* 25px - 49px */
+            font-size: clamp(1.3625rem, 4.8vw, 2.7625rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            text-align: center;
+            max-width: 45ch;
+            /* 24px - 32px */
+            margin: 0 0 clamp(1.5rem, 3vw, 2rem);
+            color: var(--bodyTextColorWhite);
         }
 
-        .cs-picture {
-            margin: 0;
-            /* reset its order */
-            order: initial;
-            position: absolute;
-            /* 50px - 108px - wrapped in calc function turn multiple value by negative 1 and get a negative clamp value*/
-            top: ~"calc(clamp(3.125rem, 8vw, 6.75rem) *-1)";
-            /* 52px - 100px */
-            right: clamp(3.25rem, 7vw, 6.25rem);
+        .cs-name {
+            /* 20px - 25px */
+            font-size: clamp(1.25rem, 2.5vw, 1.5625rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            margin: 0 0 (8/16rem) 0;
+            color: var(--primary);
+            display: block;
+        }
+
+        .cs-job {
+            font-size: (16/16rem);
+            line-height: 1.5em;
+            color: var(--bodyTextColorWhite);
+            display: block;
+            opacity: 0.8;
         }
     }
 }
-
-/* Small Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
-    #reviews-438 {
-        .cs-container {
-            /* 60px - 108px left & right */
-            /* 48px - 100px bottom */
-            padding: (108/16rem) ~"clamp(3.75rem, 4.6vw + 2rem, 6.75rem) clamp(2.5rem, 8vw, 6.25rem)";
-        }
-
-        .cs-review {
-            /* 48px - 96px changes at tablet */
-            margin: ~"0 0 clamp(3rem, 4.2vw + 2rem, 6rem) 0";
-        }
-    }
-}
+                                
 
 /*-- -------------------------- -->
 <---           Blog             -->

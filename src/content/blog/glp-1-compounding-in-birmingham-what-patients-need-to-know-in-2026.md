@@ -101,7 +101,7 @@ The process is straightforward. Here's how it works at Precision Rx:
 
 3. **Our pharmacist reviews and prepares the compound.** We'll contact the prescriber if we have any clinical questions, and we'll let you know the estimated ready time — typically one to two business days for most pediatric preparations.
 
-4. **You pick it up or arrange delivery.** We're available by phone throughout your child's treatment for any questions about administration, storage, or dosing.
+4. **You pick it up or have it shipped.** We're available by phone throughout your child's treatment for any questions about administration, storage, or dosing.
 
 ## What Birmingham Pediatricians Should Know About Partnering With Precision Rx
 

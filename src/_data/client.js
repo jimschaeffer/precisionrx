@@ -1,6 +1,6 @@
 module.exports = {
   name: "Precision RX Compounding Pharmacy",
-  email: "fax.precisionrx@gmail.com",
+  email: "info@prxpharm.com",
   phoneForTel: "+12058230780",
   phoneFormatted: "(205) 823-0780",
   address: {
@@ -17,7 +17,7 @@ module.exports = {
     tiktok: "https://www.tiktok.com/@precisionrx",
   },
   //! Make sure you include the file protocol (e.g. https://) and that NO TRAILING SLASH is included
-  domain: "https://www.precisionrxcompounding.com",
+  domain: "https://www.prxpharm.com",
   // Passing the isProduction variable for use in HTML templates
   isProduction: process.env.ELEVENTY_ENV === "PROD",
 };

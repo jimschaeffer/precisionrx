@@ -13,7 +13,7 @@ tags:
   - medicine
   - compounding
   - featured
-image: /assets/images/blog/bunny.webp
+image: /assets/images/blog/blog-post.webp
 imageAlt: Pediatric Medicine
 ---
 

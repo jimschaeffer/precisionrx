@@ -25,7 +25,7 @@ backend:
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
 # Add site links in Decap CMS (optional)
-site_url: https://precisionrx.netlify.app
+site_url: https://prxpharm.com
 
 # Keep this to allow you to edit the cms locally
 local_backend: true

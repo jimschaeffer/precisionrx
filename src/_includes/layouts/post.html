@@ -1,9 +1,7 @@
 {% extends "layouts/base.html" %} {% block head %}
 <link rel="stylesheet" href="/assets/css/blog.css" />
 
-<!-- To ensure proper validation, prevent errors, and encourage developers to check, schema's are an opt-in feature. They're very bespoke and requires some customising  -->
-<!-- Uncomment the code below to enable Structured Data, and test it when you deploy to Netlify - https://developers.google.com/search/docs/appearance/structured-data -->
-<!-- {% include "components/post-schema.html" %} -->
+{% include "components/post-schema.html" %}
 {% endblock %} {% block body %}
 
 <!-- ============================================ -->
@@ -15,7 +13,7 @@
     <span class="cs-int-title">Insights & Resources</span><br />
     <div class="cs-breadcrumbs">
       <a href="/" class="cs-link">Home</a>
-      <a href="" class="cs-link cs-active">Insights</a>
+      <a href="/blog" class="cs-link cs-active">Insights</a>
     </div>
   </div>
   <!--Background Image-->

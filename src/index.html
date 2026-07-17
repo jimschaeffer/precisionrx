@@ -950,121 +950,41 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
       </p>
     </div>
     <ul class="cs-card-group">
+      {%- for post in collections.post | reverse | limit(3) -%}
       <li class="cs-item">
         <picture class="cs-picture">
           <source
             media="(max-width: 600px)"
-            srcset="/assets/images/blog-1.webp"
+            srcset="{% getUrl post.data.image | resize({ width: 411, height: 280 }) | webp %}"
           />
           <source
             media="(min-width: 601px)"
-            srcset="/assets/images/blog-1.webp"
+            srcset="{% getUrl post.data.image | resize({ width: 411, height: 280 }) | webp %}"
           />
           <img
             loading="lazy"
             decoding="async"
-            src="/assets/images/blog-1.webp"
-            alt="people"
+            src="{% getUrl post.data.image | resize({ width: 411, height: 280 }) | jpeg %}"
+            alt="{{ post.data.imageAlt or post.data.alt or post.data.title }}"
             width="411"
             height="280"
           />
         </picture>
         <div class="cs-flex">
-          <span class="cs-date">Feb<br />24</span>
+          <span class="cs-date">{{ post.date | dateFormat("LLL") }}<br />{{ post.date | dateFormat("d") }}</span>
           <div class="cs-info-wrapper"></div>
-          <a class="cs-link" href="/blog">
+          <a class="cs-link" href="{{ post.url }}">
             <h3 class="cs-h3">
-              What Is Compounding, and Why Birmingham Patients Are Making the
-              Switch
+              {{ post.data.title }}
             </h3>
           </a>
-          A plain-language guide to what compounding is, who it's for, and why
-          more patients in the Birmingham area are making the switch from chain
-          pharmacies to personalized care.
-          <a href="/blog" class="button-small" style="--clr: #7808d0">
+          {{ post.data.description }}
+          <a href="{{ post.url }}" class="button-small" style="--clr: #7808d0">
             Continue Reading
           </a>
         </div>
       </li>
-      <li class="cs-item">
-        <picture class="cs-picture">
-          <source
-            media="(max-width: 600px)"
-            srcset="/assets/images/blog-2.webp"
-          />
-          <source
-            media="(min-width: 601px)"
-            srcset="/assets/images/blog-2.webp"
-          />
-          <img
-            loading="lazy"
-            decoding="async"
-            src="/assets/images/blog-2.webp"
-            alt="people"
-            width="411"
-            height="280"
-          />
-        </picture>
-        <div class="cs-flex">
-          <span class="cs-date">Feb<br />9</span>
-          <div class="cs-info-wrapper"></div>
-          <a class="cs-link" href="/blog">
-            <h3 class="cs-h3">
-              BHRT in Vestavia Hills: What to Expect From Bioidentical Hormone
-              Therapy
-            </h3>
-          </a>
-          Hormone imbalance looks different for everyone. Here's how Precision
-          Rx works with your physician to create a BHRT formula matched to your
-          exact lab results.<br /><br />
-          <a href="/blog" class="button-small" style="--clr: #7808d0">
-            Continue Reading
-          </a>
-        </div>
-      </li>
-      <li class="cs-item">
-        <picture class="cs-picture">
-          <source
-            media="(max-width: 600px)"
-            srcset="/assets/images/blog-3.webp"
-          />
-          <source
-            media="(min-width: 601px)"
-            srcset="/assets/images/blog-3.webp"
-          />
-          <img
-            loading="lazy"
-            decoding="async"
-            src="/assets/images/blog-3.webp"
-            alt="people"
-            width="411"
-            height="280"
-          />
-        </picture>
-        <div class="cs-flex">
-          <span class="cs-date">Jan<br />18</span>
-          <div class="cs-info-wrapper"></div>
-          <a
-            class="cs-link"
-            href="/blog/compounding-for-kids-when-pediatric-patients-need-a-custom-medication-in-birmingham/"
-          >
-            <h3 class="cs-h3">
-              Compounding for Kids: When Pediatric Patients Need a Custom
-              Medication in Birmingham
-            </h3>
-          </a>
-          From flavored liquids to allergen-free capsules, compounding makes it
-          possible for children to take medications that commercial options
-          can't provide. Here's what Birmingham-area parents should know.
-          <a
-            href="/blog/compounding-for-kids-when-pediatric-patients-need-a-custom-medication-in-birmingham/"
-            class="button-small"
-            style="--clr: #7808d0"
-          >
-            Continue Reading
-          </a>
-        </div>
-      </li>
+      {%- endfor -%}
     </ul>
     <br />
     <a href="/blog" class="button" style="--clr: #7808d0">

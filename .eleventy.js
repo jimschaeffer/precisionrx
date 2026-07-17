@@ -20,6 +20,8 @@ const javascript = require("./src/config/processors/javascript");
 // 🛠️ Utilities
 const filterPostDate = require("./src/config/filters/postDate");
 const filterIsoDate = require("./src/config/filters/isoDate");
+const filterDateFormat = require("./src/config/filters/dateFormat");
+const filterLimit = require("./src/config/filters/limit");
 const isProduction = process.env.ELEVENTY_ENV === "PROD";
 
 module.exports = function (eleventyConfig) {
@@ -99,6 +101,20 @@ module.exports = function (eleventyConfig) {
      * Powered by Luxon: https://moment.github.io/luxon/api-docs/
      */
     eleventyConfig.addFilter("isoDate", filterIsoDate);
+
+    /*
+     * 📅 Custom Date Formatting Filter
+     * Formats a date with an arbitrary Luxon token (e.g. "LLL", "d")
+     * Usage: {{ post.date | dateFormat("LLL") }}
+     */
+    eleventyConfig.addFilter("dateFormat", filterDateFormat);
+
+    /*
+     * 🔢 Array Limit Filter
+     * Returns the first N items of an array
+     * Usage: {% for post in collections.post | reverse | limit(3) %}
+     */
+    eleventyConfig.addFilter("limit", filterLimit);
 
     // ═════════════════════════════════════════════════════════════════════════
     // SHORTCODES

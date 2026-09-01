@@ -1,0 +1,77 @@
+---
+title: "Page Not Found | Precision Rx Compounding Pharmacy"
+description: "That page isn't here. Browse our compounding services or contact Precision Rx in Vestavia Hills, AL at (205) 823-0780."
+permalink: "/404.html"
+eleventyExcludeFromCollections: true
+---
+
+{% extends "layouts/base.html" %} {% block head %}
+<meta name="robots" content="noindex" />
+{% endblock %} {% block body %}
+
+<!-- ============================================ -->
+<!--                   Banner                     -->
+<!-- ============================================ -->
+
+<div id="banner-2285">
+  <div class="cs-container">
+    <h1 class="cs-int-title">Page Not Found</h1>
+    <div class="cs-breadcrumbs">
+      <a href="/" class="cs-link">Home</a>
+      <span class="cs-link cs-active">404</span>
+    </div>
+  </div>
+  <!--Background Image-->
+  <picture class="cs-background">
+    <source media="(max-width: 600px)" srcset="/assets/images/header.webp" />
+    <source media="(min-width: 601px)" srcset="/assets/images/header.webp" />
+    <img
+      decoding="async"
+      fetchpriority="high"
+      src="/assets/images/header.webp"
+      alt=""
+      width="1280"
+      height="568"
+      aria-hidden="true"
+    />
+  </picture>
+</div>
+
+<!-- ============================================ -->
+<!--                   Content                    -->
+<!-- ============================================ -->
+
+<section id="content-page-1534">
+  <div class="cs-container">
+    <span class="cs-topper">Error 404</span>
+    <h2>We couldn't find that page</h2>
+    <p>
+      The page you're looking for may have moved or no longer exists. Here's
+      where most people are headed:
+    </p>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About Precision Rx</a></li>
+      <li><a href="/hormone-replacement-therapy">Hormone Replacement Therapy (HRT)</a></li>
+      <li><a href="/womens-health">Women's Health</a></li>
+      <li><a href="/mens-health">Men's Health</a></li>
+      <li><a href="/pain-management">Pain Management</a></li>
+      <li><a href="/dermatology">Dermatology</a></li>
+      <li><a href="/pediatric-medicine">Pediatric Medicine</a></li>
+      <li><a href="/ent-compounding">ENT Compounding</a></li>
+      <li><a href="/dental-compounding">Dental Compounding</a></li>
+      <li><a href="/veterinary-medicine">Veterinary Medicine</a></li>
+      <li><a href="/for-prescribers">For Prescribers</a></li>
+      <li><a href="/blog">Insights</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <p>
+      Still stuck? Call us at
+      <a href="tel:{{ client.phoneForTel }}">{{ client.phoneFormatted }}</a> or
+      email <a href="mailto:{{ client.email }}">{{ client.email }}</a> and a
+      pharmacist will help.
+    </p>
+  </div>
+</section>
+
+{% endblock %}

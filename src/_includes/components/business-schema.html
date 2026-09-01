@@ -1,0 +1,57 @@
+{#- Pharmacy is a LocalBusiness subtype; Google uses it for the local pack.
+    Included on the pages that describe the business itself (home, about, contact). -#}
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Pharmacy",
+        "@id": "{{ client.domain }}/#pharmacy",
+        "name": {{ client.name | dump | replace("</", "<\\/") | safe }},
+        "image": "{{ client.domain }}/assets/images/logo.png",
+        "logo": "{{ client.domain }}/assets/images/logo.png",
+        "priceRange": "$$",
+        {% if client.phoneFormatted %}"telephone": "{{ client.phoneFormatted }}",{% endif %}
+        {% if client.email %}"email": "{{ client.email }}",{% endif %}
+        {% if client.address %}
+            "address": {
+                "@type": "PostalAddress" {%- if client.address.lineOne -%},
+                    "streetAddress": {% set street = client.address.lineOne + (", " + client.address.lineTwo if client.address.lineTwo else "") %}{{ street | dump | replace("</", "<\\/") | safe }}
+                {%- endif -%}
+                {%- if client.address.city -%},
+                    "addressLocality": {{ client.address.city | dump | replace("</", "<\\/") | safe }}
+                {%- endif -%}
+                {%- if client.address.state -%},
+                    "addressRegion": "{{ client.address.state }}"
+                {%- endif -%}
+                {%- if client.address.zip -%},
+                    "postalCode": "{{ client.address.zip }}"
+                {%- endif -%}
+                {%- if client.address.country -%},
+                    "addressCountry": "{{ client.address.country }}"
+                {%- endif -%}
+            },
+        {% endif %}
+        {% if client.hasMap %}"hasMap": "{{ client.hasMap }}",{% endif %}
+        {% if client.openingHours %}
+            "openingHoursSpecification": [
+                {%- for spec in client.openingHours -%}
+                    {% if not loop.first %},{% endif %}
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": [{% for day in spec.days %}{% if not loop.first %},{% endif %}"{{ day }}"{% endfor %}],
+                        "opens": "{{ spec.opens }}",
+                        "closes": "{{ spec.closes }}"
+                    }
+                {%- endfor -%}
+            ],
+        {% endif %}
+        {% if client.areaServed %}
+            "areaServed": [{% for area in client.areaServed %}{% if not loop.first %},{% endif %}{"@type": "AdministrativeArea", "name": "{{ area }}"}{% endfor %}],
+        {% endif %}
+        "url": "{{ client.domain }}{{ page.url }}"
+        {% if client.socials %},
+            "sameAs": [{%- for platform, url in client.socials -%}
+                    {% if not loop.first %},{% endif %}"{{ url }}"
+                {%- endfor -%}]
+        {% endif %}
+    }
+</script>

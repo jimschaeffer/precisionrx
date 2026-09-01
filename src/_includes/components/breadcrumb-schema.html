@@ -1,0 +1,36 @@
+{#- BreadcrumbList mirroring the visible breadcrumbs on interior pages.
+    Names are derived from the page title (the part before the "|" separator). -#}
+{%- set crumbName = breadcrumb or (title.split("|")[0] | trim) -%}
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "{{ client.domain }}/"
+            }
+            {%- if tags and "post" in tags -%},
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "{{ client.domain }}/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": {{ crumbName | dump | replace("</", "<\\/") | safe }}
+            }
+            {%- else -%},
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": {{ crumbName | dump | replace("</", "<\\/") | safe }}
+            }
+            {%- endif -%}
+        ]
+    }
+</script>

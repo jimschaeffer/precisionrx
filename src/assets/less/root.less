@@ -1792,8 +1792,10 @@ height: 2.5rem;
       padding: clamp(1.25rem, 5vw, 2.5rem) 0 0 0;
       border-top: 1px solid rgba(186, 186, 186, 0.2);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: (16/16rem);
     }
 
     .cs-copyright {
@@ -1801,7 +1803,6 @@ height: 2.5rem;
       font-size: clamp(0.875rem, 1.5vw, 1rem);
       line-height: 1.5em;
       text-align: center;
-      width: 70%;
       margin: 0;
       color: var(--bodyTextColor);
       display: block;
@@ -1826,6 +1827,15 @@ height: 2.5rem;
   #cs-footer-711 {
     .cs-top {
       justify-content: flex-end;
+    }
+
+    .cs-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .cs-copyright {
+      text-align: left;
     }
 
     .cs-ul {
@@ -1863,6 +1873,143 @@ height: 2.5rem;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+    }
+  }
+}
+
+/*-- -------------------------- -->
+<---     Ridgeway Web Badge     -->
+<--- -------------------------- -*/
+
+@rw-bg: #fff;
+@rw-bg-hover: #000;
+@rw-text: #888;
+@rw-text-hover: #fff;
+@rw-border: #eee;
+@rw-transition-fast: all ease 0.2s;
+@rw-transition-slow: all ease 0.8s;
+
+.rw-badge {
+  border: 0.5px solid @rw-border;
+  transition: @rw-transition-fast;
+  margin-left: 5px;
+  vertical-align: middle;
+  display: inline-block;
+  background-color: @rw-bg;
+  padding: 4px 10px 4px 8px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: @rw-text;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  line-height: 1;
+  white-space: nowrap;
+
+  img {
+    height: 12px;
+    width: auto;
+    vertical-align: middle;
+    margin-left: 4px;
+    transition: @rw-transition-slow;
+  }
+
+  &:hover {
+    box-shadow: 2px 2px @rw-bg;
+    background-color: @rw-bg-hover;
+    color: @rw-text-hover;
+    transform: translateY(-5px);
+    transition: @rw-transition-fast;
+
+    img {
+      filter: grayscale(1) brightness(1000%);
+      transition: @rw-transition-slow;
+    }
+  }
+}
+
+/*-- -------------------------- -->
+<---             FAQ            -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  #faq-1201 {
+    padding: var(--sectionPadding);
+
+    .cs-container {
+      width: 100%;
+      max-width: (800/16rem);
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 32px - 48px */
+      gap: clamp(2rem, 4vw, 3rem);
+    }
+
+    .cs-content {
+      text-align: center;
+    }
+
+    .cs-faq-group {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .cs-faq-item {
+      list-style: none;
+      border-bottom: 1px solid rgba(78, 75, 102, 0.15);
+    }
+
+    .cs-faq-question {
+      font-size: (18/16rem);
+      font-weight: 700;
+      line-height: 1.4em;
+      /* 16px - 20px */
+      padding: clamp(1rem, 2.5vw, 1.25rem) (32/16rem) clamp(1rem, 2.5vw, 1.25rem) 0;
+      color: var(--headerColor);
+      cursor: pointer;
+      position: relative;
+      list-style: none;
+
+      /* removes the native disclosure marker in Safari */
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &:after {
+        content: "";
+        width: (12/16rem);
+        height: (12/16rem);
+        border-right: 2px solid var(--primary);
+        border-bottom: 2px solid var(--primary);
+        opacity: 1;
+        position: absolute;
+        display: block;
+        top: (24/16rem);
+        right: (4/16rem);
+        transform: rotate(45deg);
+        transition: transform 0.3s;
+      }
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+
+    .cs-faq-details[open] .cs-faq-question:after {
+      transform: rotate(225deg);
+    }
+
+    .cs-faq-answer {
+      font-size: (16/16rem);
+      line-height: 1.5em;
+      margin: 0;
+      padding: 0 (32/16rem) (20/16rem) 0;
+      color: var(--bodyTextColor);
     }
   }
 }

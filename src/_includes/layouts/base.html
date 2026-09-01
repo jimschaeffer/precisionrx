@@ -50,8 +50,11 @@
         <meta name="apple-mobile-web-app-title" content="Precision RX" />
         <link rel="manifest" href="/assets/favicons/site.webmanifest" />
 
+        <!-- Fathom is render-blocking-adjacent on every page; warm the connection early -->
+        <link rel="preconnect" href="https://cdn.usefathom.com" crossorigin>
+
         <!-- Preloads -->
-        <link rel="preload" as="image" href="/assets/svgs/logo-black.svg">
+        {#- logo-black.svg is only a schema publisher-logo URL, never rendered, so it is not preloaded -#}
         <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/poppins-v24-latin-regular.woff2" crossorigin>
         <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/poppins-v24-latin-700.woff2" crossorigin>
 
@@ -61,7 +64,20 @@
 
         {% block head %}{% endblock %}
 
-        <title>{{ title }}</title>
+        <!--Structured data-->
+        {#- Pharmacy markup belongs on the pages that describe the business itself -#}
+        {%- if page.url == "/" or page.url == "/about/" or page.url == "/contact/" %}
+            {% include "components/business-schema.html" %}
+        {%- endif %}
+        {#- Every interior page carries visible breadcrumbs, so mirror them in markup -#}
+        {%- if page.url != "/" %}
+            {% include "components/breadcrumb-schema.html" %}
+        {%- endif %}
+        {%- if faq %}
+            {% include "components/faq-schema.html" %}
+        {%- endif %}
+
+        <title>{{ seoTitle or title }}</title>
 
         <!-- Fathom - beautiful, simple website analytics -->
 <script src="https://cdn.usefathom.com/script.js" data-site="MPTYBKBI" defer></script>

@@ -6,8 +6,8 @@
             "@type": "WebPage",
             "@id": "{{ client.domain }}{{ page.url }}"
         },
-        {% if title %}"headline": "{{ title | escape }}",{% endif %}
-        {% if description %}"description": "{{ description | escape }}",{% endif %}
+        {% if title %}"headline": {{ title | dump | replace("</", "<\\/") | safe }},{% endif %}
+        {% if description %}"description": {{ description | dump | replace("</", "<\\/") | safe }},{% endif %}
         {% if image %}
             "image": {
                 "@type": "ImageObject",
@@ -17,17 +17,17 @@
             },
         {% endif %}
         {% if date %}"datePublished": "{{ date | isoDate }}",{% endif %}
-        {% if date %}"dateModified": "{{ date | isoDate }}",{% endif %}
+        {% if updated %}"dateModified": "{{ updated | isoDate }}",{% elif date %}"dateModified": "{{ date | isoDate }}",{% endif %}
         {% if author %}
             "author": {
                 "@type": "Person",
-                "name": "{{ author | escape }}"
+                "name": {{ author | dump | replace("</", "<\\/") | safe }}
             },
         {% endif %}
         {% if client.name %}
             "publisher": {
                 "@type": "Organization",
-                "name": "{{ client.name | escape }}",
+                "name": {{ client.name | dump | replace("</", "<\\/") | safe }},
                 "logo": {
                     "@type": "ImageObject",
                     "url": "{{ client.domain }}/assets/svgs/logo-black.svg",

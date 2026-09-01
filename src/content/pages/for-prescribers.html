@@ -18,7 +18,7 @@ permalink: "/for-prescribers/"
     <span class="cs-int-title">For Prescribers</span><br />
     <div class="cs-breadcrumbs">
       <a href="/" class="cs-link">Home</a>
-      <a href="" class="cs-link cs-active">For Prescribers</a>
+      <span class="cs-link cs-active">For Prescribers</span>
     </div>
   </div>
   <!--Background Image-->
@@ -29,6 +29,7 @@ permalink: "/for-prescribers/"
     <source media="(min-width: 601px)" srcset="/assets/images/header.webp" />
     <img
       decoding="async"
+      fetchpriority="high"
       src="/assets/images/header.webp"
       alt="Prescription RX Header"
       width="1280"
@@ -46,10 +47,10 @@ permalink: "/for-prescribers/"
   <div class="cs-container">
     <div class="cs-content">
       <span class="cs-topper">For Prescribers</span>
-      <h2 class="cs-title">
+      <h1 class="cs-title">
         A Compounding Partner
         <span class="cs-color">Physicians</span> Can Rely On
-      </h2>
+      </h1>
       <p class="cs-text">
         When a commercially available medication isn't the right fit for your
         patient, Precision Rx Compounding is the call you make. We've been
@@ -347,5 +348,7 @@ permalink: "/for-prescribers/"
   </div>
   <div class="cs-bubbles" aria-hidden="true"></div>
 </section>
+
+{% include 'sections/faq.html' %}
 
 {% include 'sections/cta.html' %} {% endblock %}

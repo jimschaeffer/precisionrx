@@ -1,7 +1,8 @@
 ---
 title: "Blog | Precision Rx Compounding Pharmacy"
-description: "Compounding pharmacy insights from Precision Rx in Vestavia Hills, AL. Expert guides on custom medications, BHRT, pediatric compounding, and local health topics."
+description: "Compounding pharmacy insights from Precision Rx in Vestavia Hills, AL. Guides on custom medications, BHRT, pediatric compounding, and local health."
 permalink: "/blog/"
+breadcrumb: "Insights"
 ---
 
 {% extends "layouts/base.html" %}
@@ -19,10 +20,10 @@ permalink: "/blog/"
 
 <div id="banner-2285">
     <div class="cs-container">
-        <span class="cs-int-title">Insights & Resources</span><br>
+        <h1 class="cs-int-title">Insights & Resources</h1>
         <div class="cs-breadcrumbs">
             <a href="/" class="cs-link">Home</a>
-            <a href="" class="cs-link cs-active">Insights</a>
+            <span class="cs-link cs-active">Insights</span>
         </div>
     </div>
     <!--Background Image-->
@@ -31,7 +32,7 @@ permalink: "/blog/"
         <source media="(max-width: 600px)" srcset="/assets/images/header.webp">
         <!--Tablet and above Image-->
         <source media="(min-width: 601px)" srcset="/assets/images/header.webp">
-        <img decoding="async" src="/assets/images/header.webp" alt="Prescription RX Header" width="1280" height="568" aria-hidden="true">
+        <img decoding="async" fetchpriority="high" src="/assets/images/header.webp" alt="Prescription RX Header" width="1280" height="568" aria-hidden="true">
     </picture>
 </div>
 
@@ -42,9 +43,9 @@ permalink: "/blog/"
     <div id="blog-listing">
         <div class="cs-container">
             {% if collections.post | length == 0 %}
-                <h1 class="cs-title">
+                <h2 class="cs-title">
                     No Recent Posts
-                </h1>
+                </h2>
             {% else %}
                 {%- for post in collections.post | reverse -%}
                     <article class="cs-article">

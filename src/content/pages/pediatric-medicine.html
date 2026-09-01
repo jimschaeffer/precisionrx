@@ -1,6 +1,6 @@
 ---
 title: "Pediatric Medicine | Precision Rx Compounding Pharmacy"
-description: "Pediatric compounding pharmacy in Vestavia Hills, AL. Precision Rx creates flavored liquids, allergen-free capsules, and custom doses for children in the Birmingham area."
+description: "Pediatric compounding pharmacy in Vestavia Hills, AL. Precision Rx makes flavored liquids, allergen-free capsules, and custom doses for children."
 permalink: "/pediatric-medicine/"
 ---
 
@@ -18,8 +18,8 @@ permalink: "/pediatric-medicine/"
         <span class="cs-int-title">Pediatric Medicine</span><br>
         <div class="cs-breadcrumbs">
             <a href="/" class="cs-link">Home</a>
-                <a href="#" class="cs-link">Common Compounds</a>
-                <a href="#" class="cs-link cs-active">Pediatric Medicine</a>
+                <span class="cs-link">Common Compounds</span>
+                <span class="cs-link cs-active">Pediatric Medicine</span>
         </div>
     </div>
     <!--Background Image-->
@@ -28,7 +28,7 @@ permalink: "/pediatric-medicine/"
         <source media="(max-width: 600px)" srcset="/assets/images/header.webp">
         <!--Tablet and above Image-->
         <source media="(min-width: 601px)" srcset="/assets/images/header.webp">
-        <img decoding="async" src="/assets/images/header.webp" alt="Prescription RX Header" width="1280" height="568" aria-hidden="true">
+        <img decoding="async" fetchpriority="high" src="/assets/images/header.webp" alt="Prescription RX Header" width="1280" height="568" aria-hidden="true">
     </picture>
 </div>
 
@@ -121,5 +121,7 @@ permalink: "/pediatric-medicine/"
     </div>
     <div class="cs-bubbles" aria-hidden="true"></div>
 </section>
+
+{% include 'sections/faq.html' %}
 
 {% include 'sections/cta.html' %} {% endblock %}

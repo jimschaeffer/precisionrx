@@ -1,0 +1,27 @@
+{#- FAQPage markup, emitted only when a page defines `faq` in its front matter:
+
+      faq:
+        - q: "Question text?"
+          a: "Answer text."
+
+    Render the matching visible section with {% include "sections/faq.html" %} —
+    Google requires the Q&A to be visible on the page, not schema-only. -#}
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {%- for item in faq -%}
+                {% if not loop.first %},{% endif %}
+                {
+                    "@type": "Question",
+                    "name": {{ item.q | dump | replace("</", "<\\/") | safe }},
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": {{ item.a | dump | replace("</", "<\\/") | safe }}
+                    }
+                }
+            {%- endfor -%}
+        ]
+    }
+</script>

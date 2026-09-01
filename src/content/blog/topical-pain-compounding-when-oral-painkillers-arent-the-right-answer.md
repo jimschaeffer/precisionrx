@@ -1,9 +1,15 @@
 ---
 title: "Topical Pain Compounding: When Oral Painkillers Aren't the Right Answer"
 url: "Topical Pain Compounding: When Oral Painkillers Aren't the Right Answer"
-description: For Birmingham patients dealing with arthritis, nerve pain, or
-  injury-related discomfort, compounded topical medications offer targeted
-  relief without the systemic side effects of oral painkillers.
+description: "Compounded topical medications give Birmingham patients targeted relief from arthritis and nerve pain without the side effects of oral painkillers."
+seoTitle: "Topical Pain Compounding for Chronic Pain | Precision Rx"
+faq:
+  - q: "Are compounded topical pain creams safe?"
+    a: "Yes, when prescribed and prepared correctly, compounded topicals are a safe and widely used option. They are customized to reduce unnecessary exposure to medications you don't need."
+  - q: "Do I need a prescription?"
+    a: "Yes. Compounded medications are made specifically for you and require a prescription from your healthcare provider."
+  - q: "How quickly do they work?"
+    a: "Many patients experience relief within minutes to hours, depending on the formulation and condition being treated."
 author: Dr. Mandy Jackson
 date: 2026-04-24T10:41:00.000-05:00
 tags:
@@ -20,7 +26,6 @@ tags:
 image: /assets/images/blog/blog-2.webp
 imageAlt: topical pain compounding
 ---
-# Topical Pain Compounding: When Oral Pain Medications Aren't the Right Answer
 
 For many patients, pain management often begins with oral medications such as NSAIDs, muscle relaxers, or even opioids. While these can be effective, they’re not always the *right* long-term solution.
 

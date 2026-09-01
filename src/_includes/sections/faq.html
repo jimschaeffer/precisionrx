@@ -1,0 +1,27 @@
+<!-- ============================================ -->
+<!--                     FAQ                      -->
+<!-- ============================================ -->
+
+{#- Renders the `faq` front matter as a visible accordion. Google only credits
+    FAQPage markup when the same Q&A is visible on the page, so this section and
+    components/faq-schema.html are always driven by the same front matter. -#}
+{% if faq %}
+<section id="faq-1201">
+  <div class="cs-container">
+    <div class="cs-content">
+      <span class="cs-topper">{{ faqTopper or "FAQ" }}</span>
+      <h2 class="cs-title">{{ faqTitle or "Frequently Asked Questions" }}</h2>
+    </div>
+    <ul class="cs-faq-group">
+      {% for item in faq %}
+      <li class="cs-faq-item">
+        <details class="cs-faq-details"{% if loop.first %} open{% endif %}>
+          <summary class="cs-faq-question">{{ item.q }}</summary>
+          <p class="cs-faq-answer">{{ item.a }}</p>
+        </details>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}

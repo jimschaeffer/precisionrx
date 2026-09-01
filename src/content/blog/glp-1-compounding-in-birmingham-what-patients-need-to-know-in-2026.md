@@ -3,9 +3,8 @@ title: "Compounding for Kids: When Pediatric Patients Need a Custom Medication
   in Birmingham"
 url: Compounding for Kids When Pediatric Patients Need a Custom Medication in
   Birmingham
-description: From flavored liquids to allergen-free capsules, compounding makes
-  it possible for children to take medications that commercial options can't
-  provide. Here's what Birmingham-area parents should know.
+description: "Flavored liquids, allergen-free capsules, and custom doses: how compounding helps Birmingham kids take medications commercial options can't provide."
+seoTitle: "Compounding for Kids in Birmingham | Precision Rx"
 author: Dr. Mandy Jackson
 date: 2026-02-24T14:22:00.000-06:00
 tags:

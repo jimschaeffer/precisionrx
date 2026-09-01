@@ -4,6 +4,18 @@ url: blog/veterinary-compounding-pet-medication-birmingham-al
 description: Learn how veterinary compounding helps dogs, cats, and other pets
   with customized medications, flavored formulations, transdermal gels, and
   precise dosing.
+seoTitle: "Veterinary Compounding for Pets | Birmingham, AL"
+faq:
+  - q: "Is veterinary compounding safe?"
+    a: "Yes. When performed by a licensed compounding pharmacy following appropriate quality standards and using a valid veterinarian's prescription, compounded medications provide customized treatment options for many animals."
+  - q: "Can every medication be compounded?"
+    a: "No. Some medications are not suitable for compounding due to stability, effectiveness, or regulatory limitations. Your veterinarian and pharmacist can determine the most appropriate option."
+  - q: "Can medications be flavored?"
+    a: "In many cases, yes. Flavor selection depends on the medication, species, and formulation."
+  - q: "Can cats receive medication without swallowing pills?"
+    a: "For certain medications, yes. Transdermal formulations may provide an alternative method of administration when clinically appropriate."
+  - q: "Do I need a prescription?"
+    a: "Yes. Veterinary compounded medications require a valid prescription from a licensed veterinarian."
 author: Dr. Mandy Jackson
 date: 2026-07-17T13:59:00.000-05:00
 tags:
@@ -14,7 +26,6 @@ tags:
 image: /assets/images/blog/vet-1-.jpeg
 imageAlt: Veterinary Compounding
 ---
-# Veterinary Compounding: Helping Pets Take the Medication They Need
 
 Giving medication to a pet isn't always easy.
 

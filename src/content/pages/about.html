@@ -1,6 +1,6 @@
 ---
 title: "About | Precision Rx Compounding Pharmacy"
-description: "Meet the team at Precision Rx Compounding Pharmacy in Vestavia Hills, AL. Learn about our pharmacists, quality standards, and commitment to personalized patient care."
+description: "Meet the team at Precision Rx Compounding Pharmacy in Vestavia Hills, AL. Learn about our pharmacists, quality standards, and patient-first care."
 permalink: "/about/"
 ---
 
@@ -18,7 +18,7 @@ permalink: "/about/"
     <span class="cs-int-title">About Us</span><br />
     <div class="cs-breadcrumbs">
       <a href="/" class="cs-link">Home</a>
-      <a href="" class="cs-link cs-active">About</a>
+      <span class="cs-link cs-active">About</span>
     </div>
   </div>
   <!--Background Image-->
@@ -29,6 +29,7 @@ permalink: "/about/"
     <source media="(min-width: 601px)" srcset="/assets/images/header.webp" />
     <img
       decoding="async"
+      fetchpriority="high"
       src="/assets/images/header.webp"
       alt="Prescription RX Header"
       width="1280"
@@ -46,10 +47,10 @@ permalink: "/about/"
   <div class="cs-container">
     <div class="cs-content">
       <span class="cs-topper">About Precision RX Compounding Pharmacy</span>
-      <h2 class="cs-title">
+      <h1 class="cs-title">
         Vestavia Hills' Trusted
         <span class="cs-color">Compounding Pharmacy</span>
-      </h2>
+      </h1>
       <p class="cs-text">
         Precision Rx Compounding is an independent, locally owned compounding
         pharmacy serving patients and physicians across Vestavia Hills,
@@ -231,7 +232,7 @@ permalink: "/about/"
         </li>
       </ul>
 
-      <h2>Serving Patiets & Physicians Since 2014</h2>
+      <h2>Serving Patients & Physicians Since 2014</h2>
       <p>
         We opened our doors in 2014 with a straightforward mission: to be the
         compounding pharmacy that Birmingham-area patients and physicians could
@@ -296,5 +297,7 @@ permalink: "/about/"
   </div>
   <div class="cs-bubbles" aria-hidden="true"></div>
 </section>
+
+{% include 'sections/faq.html' %}
 
 {% include 'sections/cta.html' %} {% endblock %}

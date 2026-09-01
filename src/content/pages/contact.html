@@ -6,7 +6,7 @@ permalink: "/contact/"
 
 {% extends "layouts/base.html" %} {% block head %}
 <link rel="stylesheet" href="/assets/css/contact.css" />
-<link rel="preload" as="image" href="/assets/images/banner.webp" />
+<link rel="preload" as="image" href="/assets/images/header.webp" />
 {% endblock %} {% block body %}
 
 <!-- ============================================ -->
@@ -18,7 +18,7 @@ permalink: "/contact/"
     <span class="cs-int-title">Contact Us</span><br />
     <div class="cs-breadcrumbs">
       <a href="/" class="cs-link">Home</a>
-      <a href="" class="cs-link cs-active">Contact</a>
+      <span class="cs-link cs-active">Contact</span>
     </div>
   </div>
   <!--Background Image-->
@@ -29,6 +29,7 @@ permalink: "/contact/"
     <source media="(min-width: 601px)" srcset="/assets/images/header.webp" />
     <img
       decoding="async"
+      fetchpriority="high"
       src="/assets/images/header.webp"
       alt="Prescription RX Header"
       width="1280"
@@ -46,7 +47,7 @@ permalink: "/contact/"
   <div class="cs-container">
     <div class="cs-content">
       <span class="cs-topper">Contact Us</span>
-      <h2 class="cs-title">Get in Touch With Precision Rx</h2>
+      <h1 class="cs-title">Get in Touch With Precision Rx</h1>
     </div>
     <div class="cs-contact-group">
       <picture class="cs-picture">
